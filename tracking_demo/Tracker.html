@@ -1,0 +1,202 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Track Element Hovers
+{% endblock %}
+
+{% block styles %}
+<link href="{{ static 'global/css/choiceTask.css'}}" rel="stylesheet">
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class = "row">
+
+
+
+<div class="col-6" id="page_0_10_flipcards">
+    <div style="margin-left:auto; margin-right:auto;">  <h3> {{AName}} </h3>
+        <img style="width:50%; max-width:200px; " src= {{APicture}}>  
+    
+    </div>
+   
+    <div class="flip-card tracked_element" id="att_A1">
+        <!-- <div class=" "> -->
+        <div class=" flip-card-inner" id="att_A1_inner">
+            <div  id="att_A1_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_A1_frontspan">Price</span>
+            </div>
+
+            <div  id="att_A1_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_A1_backspan"> {{APrice}}€ </span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+    <div class="flip-card tracked_element" id="att_A2">
+        <!-- <div class=" "> -->
+        <div id="att_A2_inner" class=" flip-card-inner">
+            <div  id="att_A2_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_A2_frontspan"> CO2 e</span>
+            </div>
+
+            <div id="att_A2_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_A2_backspan"> {{ACO2}}g CO2</span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+
+    <div class="flip-card tracked_element" id="att_A3">
+        <!-- <div class=" "> -->
+        <div id="att_A3_inner" class="flip-card-inner ">
+            <div id="att_A3_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_A3_frontspan"> Protein</span>
+            </div>
+
+            <div id="att_A3_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_A3_backspan"> {{AProtein}}g</span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+</div>
+
+<div class="col-6" id="page_0_10_flipcards">
+   
+    <div style="margin-left:auto; margin-right:auto;">
+        <h3 style="text-align:left"> {{BName}} </h3>
+
+        <img style="width:50%; max-width:200px;  margin-right: 2vw;" src={{BPicture}}>
+    </div>
+
+    <div class="flip-card tracked_element" id="att_B1">
+        <!-- <div class=" "> -->
+        <div class=" flip-card-inner" id="att_B1_inner">
+            <div id="att_B1_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_B1_frontspan">Price</span>
+            </div>
+
+            <div id="att_B1_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_B1_backspan"> {{BPrice}}€ </span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+    <div class="flip-card tracked_element" id="att_B2">
+        <!-- <div class=" "> -->
+        <div id="att_B2_inner" class=" flip-card-inner">
+            <div id="att_B2_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_B2_frontspan"> CO2 e</span>
+            </div>
+
+            <div id="att_B2_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_B2_backspan"> {{BCO2}}g CO2</span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+
+    <div class="flip-card tracked_element" id="att_B3">
+        <!-- <div class=" "> -->
+        <div id="att_B3_inner" class="flip-card-inner ">
+            <div id="att_B3_frontwrapper" class=" flip-card-front valign-wrapper jok">
+                <span id="att_B3_frontspan"> Protein</span>
+            </div>
+
+            <div id="att_B3_backwrapper" class=" flip-card-back valign-wrapper jok">
+                <span id="att_B3_backspan"> {{BProtein}} g </span>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+</div>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        let hover_events = {};
+        let last_event_id = ""; 
+
+        // $(".tracked_element").mouseenter(function(e) {
+        //     // entering starts a new hover event
+        //     let enter_time = Date.now();
+        //     myid = e.target.id.substring(0, 6)
+        //     hover_events[myid] = {
+        //         element_id: myid,
+        //         enter_time: enter_time,
+        //         leave_time: undefined
+        //     };
+        //     console.log("hallo printe mal")
+        //     console.log(hover_events[myid])
+
+        //    // visualization only
+        //    //$("#"+e.target.id+"_state").text("mouse entered");
+        //    //$("#"+e.target.id+"_enter").text(enter_time);
+        //    //$("#"+e.target.id+"_leave").text("");
+        // });
+
+
+        // function myHandler(event) {
+        //         alert(event.data.foo);
+        //     }
+        //     $("p").on("click", { foo: "bar" }, myHandler);
+
+
+       
+
+     
+
+        $(".tracked_element").on("click", event, function attributeClick(event) {
+                let leave_time = Date.now();
+                mylastid = last_event_id
+                $('.flip-card').removeClass('active')
+                if (mylastid != "") {
+                    hover_events[mylastid]["leave_time"] = leave_time;
+                    hover_events[mylastid]["duration"] = leave_time - hover_events[mylastid]["enter_time"];
+                    hover_events[mylastid]["attributeType"] = $('#' + mylastid + '_frontspan').text();
+                    hover_events[mylastid]["attributeValue"] = $('#' + mylastid + '_backspan').text();
+
+                    // send the event and free up the element in the dictionary.
+                    liveSend(hover_events[mylastid]);
+                    console.log("hallo printe gehen")
+                    console.log(hover_events[mylastid])
+                }
+
+                // now open new element
+                let enter_time = Date.now();
+
+                myid = $(this)[0].id
+                if (mylastid != myid) {
+                    $('#' + myid).addClass('active')
+                    last_event_id = myid
+                    hover_events[myid] = {
+                        element_id: myid,
+                        enter_time: enter_time,
+                        leave_time: undefined
+                    };
+
+                }
+                else {
+                    last_event_id = ""
+                }
+
+            });
+
+    </script>
+{% endblock %}
