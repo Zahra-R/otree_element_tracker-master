@@ -25,6 +25,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    choice = models.StringField( choices = ['A', 'B'])
     def store_tracking_data(self, payload):
         HoverEvent.create(
             player=self,
@@ -79,6 +80,7 @@ def custom_export(players):
 
 class Tracker(Page):
     form_model = 'player'
+    form_fields = ['choice']
     @staticmethod
     def live_method(player, data):
         player.store_tracking_data(data)

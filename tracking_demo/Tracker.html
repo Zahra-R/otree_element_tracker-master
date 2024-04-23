@@ -13,6 +13,8 @@
 
 {% block content %}
 
+<p> Dies ist Runde Nummer {{round_number}} von 10. </p>
+
 
 <div class = "row">
 
@@ -67,6 +69,9 @@
         <!-- </div> -->
     </div>
 
+    <div style="text-align: left; margin-left:2vw ;"><button type="button" name="leftchoice" id="abtn" value="A"
+        class="choicebtn btn btn-primary btn-large" > Wähle Option A</button></div>
+
 </div>
 
 <div class="col-6" id="page_0_10_flipcards">
@@ -119,12 +124,21 @@
         </div>
         <!-- </div> -->
     </div>
+    <div style="text-align: left; margin-left:2vw ;"><button type="button" name="rightchoice" id="bbtn" value="B"
+        class="choicebtn btn btn-primary btn-large" > Wähle Option B</button></div>
+    
+    </div>
 </div>
 
-</div>
 
 
-    {% next_button %}
+<input type="hidden" name="choice" id="choice" />
+
+<button type="hidden" style="display:none;" name="triggernext" id="id_triggernext"> </button>
+
+
+{{ formfield_errors 'choice' }}
+
 
 {% endblock %}
 
@@ -197,6 +211,36 @@
                 }
 
             });
+
+
+            $(".choicebtn").on("click", {event, triggernext}, function attributeClick(event, callback) {
+                let leave_time = Date.now();
+                mylastid = last_event_id
+                $('.flip-card').removeClass('active')
+                if (mylastid != "") {
+                    hover_events[mylastid]["leave_time"] = leave_time;
+                    hover_events[mylastid]["duration"] = leave_time - hover_events[mylastid]["enter_time"];
+                    hover_events[mylastid]["attributeType"] = $('#' + mylastid + '_frontspan').text();
+                    hover_events[mylastid]["attributeValue"] = $('#' + mylastid + '_backspan').text();
+
+                    // send the event and free up the element in the dictionary.
+                    liveSend(hover_events[mylastid]);
+                } 
+                forminputs.choice.value = event.target.value
+                setTimeout(triggernext(), 500)
+
+            });
+
+
+            function triggernext() {
+                $('#id_triggernext').trigger('click')
+                console.log("i am triggered")
+
+            }
+
+
+   
+
 
     </script>
 {% endblock %}
