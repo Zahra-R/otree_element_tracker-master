@@ -16,12 +16,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    age = models.IntegerField()
-    gender = models.StringField(choices=["female","male","diverse", "other"])
-    preference = models.StringField(widget=widgets.RadioSelect, choices=[["wrp","Wrap"], ["brt","Burrito"], ["flf","Falafel"] ])
-    consent = models.IntegerField(
-        choices=[(1, 'Ich stimme zu'), (2, 'Ich stimme nicht zu')],
-        widget=widgets.RadioSelect
+    consent = models.BooleanField(
+        label="Ich stimme zu",
+        widget=widgets.CheckboxInput
     )
 
 
@@ -29,9 +26,9 @@ class Player(BasePlayer):
 
 # PAGES
 # Hier steht ein bedeutungsloser KOmmentar
-class MyPage(Page):
-    form_model = 'player'
-    form_fields = ['age', 'gender', 'preference']
+# class MyPage(Page):
+#    form_model = 'player'
+#    form_fields = ['age', 'gender', 'preference']
 
 class Consent(Page):
     form_model = 'player'
@@ -41,8 +38,8 @@ class Consent(Page):
         if values['consent'] != 1:
             return "Sie müssen zustimmen, um fortzufahren."
         
-class Introduction(Page):
+class Instructions(Page):
     form_model = 'player'
 
-page_sequence = [MyPage, Consent, Introduction]
+page_sequence = [Consent, Instructions]
 

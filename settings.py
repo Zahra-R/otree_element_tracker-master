@@ -3,12 +3,12 @@ from os import environ
 SESSION_CONFIGS = [
      dict(
          name='FirstSurvey',
-         app_sequence=['tracking_demo', 'survey', 'NEPR_scale'],
+         app_sequence=['introduction', 'tracking_demo', 'NEPR_scale', 'memory_task', 'demographics'],
          num_demo_participants=20,
      ),
      dict(
          name='FirstSurveyduplicate',
-         app_sequence=['survey', 'NEPR_scale'],
+         app_sequence=['introduction', 'tracking_demo', 'NEPR_scale', 'memory_task', 'demographics'],
          num_demo_participants=20,
      ),
 ]

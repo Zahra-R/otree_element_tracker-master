@@ -11,7 +11,7 @@ class C(BaseConstants):
     with open(stimulipath, 'r') as j:
         stimulitable = json.loads(j.read())
     
-    NUM_ROUNDS = 10
+    NUM_ROUNDS = 15
 
 
 

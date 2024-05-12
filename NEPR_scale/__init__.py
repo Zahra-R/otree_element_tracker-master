@@ -216,4 +216,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [NEPR, Results]
+page_sequence = [NEPR]
