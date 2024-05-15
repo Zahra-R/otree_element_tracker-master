@@ -95,7 +95,7 @@ class Tracker(Page):
             'APicture': " /static/global/images/" + roundStimulus['PictureA'], 
             'APrice': roundStimulus['PriceA'], 
             'ACO2':  roundStimulus['CO2A'], 
-            'AProtein':  roundStimulus['ProteinB'], 
+            'AProtein':  roundStimulus['ProteinA'], 
             'BPicture': " /static/global/images/" + roundStimulus['PictureB'], 
             'BPrice': roundStimulus['PriceB'], 
             'BCO2':  roundStimulus['CO2B'], 
