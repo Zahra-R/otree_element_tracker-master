@@ -3,16 +3,17 @@ from os import environ
 SESSION_CONFIGS = [
      dict(
          name='FirstSurvey',
-         app_sequence=['introduction', 'tracking_demo', 'NEPR_scale', 'memory_task', 'demographics'],
+         app_sequence=['introduction', 'tracking_demo', 'memory_task', 'demographics'],
          num_demo_participants=20,
      ),
      dict(
          name='FirstSurveyduplicate',
-         app_sequence=['introduction', 'tracking_demo', 'NEPR_scale', 'memory_task', 'demographics'],
+         app_sequence=['introduction', 'tracking_demo', 'memory_task', 'demographics'],
          num_demo_participants=20,
      ),
 ]
 
+# 'NEPR_scale'
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,

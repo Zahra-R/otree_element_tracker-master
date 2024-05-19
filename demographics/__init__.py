@@ -33,6 +33,12 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    studierende = models.StringField(
+        label="Sind Sie momentan an einer Universität eingeschrieben?",
+        choices=['Ja', 'Nein'],
+        widget=widgets.RadioSelect
+    )
+
     monatliches_einkommen = models.StringField(
         label="Wie hoch ist Ihr monatliches Einkommen?",
         choices=['0-500', '500-1000', '1000-2000', '2000-5000', '5000-8000', '> 8000', 'Ich möchte keine Angabe machen'],
@@ -50,7 +56,7 @@ class Player(BasePlayer):
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['alter', 'geschlecht', 'monatliches_einkommen', 'haushalts_einkauf']
+    form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'haushalts_einkauf']
 
 
 class Goodbye(Page):

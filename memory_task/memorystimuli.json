@@ -1,0 +1,52 @@
+
+[
+    {
+     "StimulusID": 1,
+     "PictureA": "macandcheese.webp",
+     "PictureB": "curry.webp",
+     "DescriptionA": "Mac & Cheese",
+     "DescriptionB": "Kichererbsen Curry"
+    },
+    {
+     "StimulusID": 2,
+     "PictureA": "hamburger.webp",
+     "PictureB": "falafel.webp",
+     "DescriptionA": "Hamburger",
+     "DescriptionB": "Falafelsandwich"
+    },
+    {
+     "StimulusID": 3,
+     "PictureA": "icecream.webp",
+     "PictureB": "sorbet.webp",
+     "DescriptionA": "Eiscreme",
+     "DescriptionB": "Früchtesorbet"
+    },
+    {
+     "StimulusID": 4,
+     "PictureA": "pizza.webp",
+     "PictureB": "chili.webp",
+     "DescriptionA": "Pizza",
+     "DescriptionB": "Chili sin carne"
+    },
+    {
+     "StimulusID": 5,
+     "PictureA": "meatballs.webp",
+     "PictureB": "marinara.webp",
+     "DescriptionA": "Spaghetti Meatballs",
+     "DescriptionB": "Spaghetti Marinara"
+    },
+    {
+     "StimulusID": 6,
+     "PictureA": "cowmilk.webp",
+     "PictureB": "oatmilk.webp",
+     "DescriptionA": "Kuhmilch",
+     "DescriptionB": "Pflanzliche Milch"
+    },
+    {
+     "StimulusID": 7,
+     "PictureA": "oatmilk.webp",
+     "PictureB": "cowmilk.webp",
+     "DescriptionA": "Beschreibungsfeld A",
+     "DescriptionB": "Beschreibungsfeld B"
+    }
+]
