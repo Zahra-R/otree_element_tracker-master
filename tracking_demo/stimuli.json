@@ -10,8 +10,8 @@
   "PriceB": 1.60,
   "CO2B": 123,
   "ProteinB": 9,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Eier mit Speck",
+  "NameB": "Hummus mit Brot"
  },
  {
   "StimulusID": 2,
@@ -23,8 +23,8 @@
   "PriceB": 1.18,
   "CO2B": 229,
   "ProteinB": 11,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Cerealien mit Kuhmilch",
+  "NameB": "Haferflocken mit pflanzlicher Milch"
  },
  {
   "StimulusID": 3,
@@ -36,8 +36,8 @@
   "PriceB": 7,
   "CO2B": 84,
   "ProteinB": 0,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Eis",
+  "NameB": "Sorbet"
  },
  {
   "StimulusID": 4,
@@ -49,21 +49,21 @@
   "PriceB": 0.4,
   "CO2B": 82,
   "ProteinB": 11,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Schokolade",
+  "NameB": "Erdnussbutter Sandwich"
  },
  {
   "StimulusID": 5,
-  "PictureA": "apples.webp",
+  "PictureA": "apple.webp",
   "PriceA": 0.49,
-  "CO2A": 279,
+  "CO2A": 72,
   "ProteinA": 1,
-  "PictureB": "dates.webp",
+  "PictureB": "mango.webp",
   "PriceB": 0.36,
-  "CO2B": 84,
+  "CO2B": 352,
   "ProteinB": 1,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Apfel",
+  "NameB": "Mango"
  },
  {
   "StimulusID": 6,
@@ -75,8 +75,8 @@
   "PriceB": 0.81,
   "CO2B": 37,
   "ProteinB": 3.5,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Yoghurt Müsliriegel",
+  "NameB": "Cracker"
  },
  {
   "StimulusID": 7,
@@ -88,8 +88,8 @@
   "PriceB": 17.50,
   "CO2B": 260,
   "ProteinB": 22,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Mac and Cheese",
+  "NameB": "Kichererbsen Curry"
  },
  {
   "StimulusID": 8,
@@ -101,8 +101,8 @@
   "PriceB": 14.50,
   "CO2B": 300,
   "ProteinB": 23.5,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Hamburger",
+  "NameB": "Falafel Sandwich"
  },
  {
   "StimulusID": 9,
@@ -114,8 +114,8 @@
   "PriceB": 22,
   "CO2B": 86,
   "ProteinB": 38,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Salami Pizza",
+  "NameB": "Chili sin Carne"
  },
  {
   "StimulusID": 10,
@@ -127,8 +127,8 @@
   "PriceB": 12.50,
   "CO2B": 815,
   "ProteinB": 43,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Steak",
+  "NameB": "Moussaka"
  },
  {
   "StimulusID": 11,
@@ -140,8 +140,8 @@
   "PriceB": 18,
   "CO2B": 352,
   "ProteinB": 14,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Spaghetti Meatballs",
+  "NameB": "Spaghetti Marinara"
  },
  {
   "StimulusID": 12,
@@ -153,8 +153,8 @@
   "PriceB": 17.50,
   "CO2B": 392,
   "ProteinB": 17,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Lasagne",
+  "NameB": "Pasta Primavera"
  },
  {
   "StimulusID": 13,
@@ -166,8 +166,8 @@
   "PriceB": 19,
   "CO2B": 501,
   "ProteinB": 24,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Roastbeef",
+  "NameB": "Veganer Burrito"
  },
  {
   "StimulusID": 14,
@@ -179,8 +179,8 @@
   "PriceB": 0.7,
   "CO2B": 112,
   "ProteinB": 4,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Beef Jerky",
+  "NameB": "Trailmix"
  },
  {
   "StimulusID": 15,
@@ -192,7 +192,7 @@
   "PriceB": 28,
   "CO2B": 1379,
   "ProteinB": 35,
-  "NameA": "Option A",
-  "NameB": "Option B"
+  "NameA": "Lammkotlett",
+  "NameB": "Halloumi"
  }
 ]

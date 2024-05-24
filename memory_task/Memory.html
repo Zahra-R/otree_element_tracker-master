@@ -2,34 +2,45 @@
 {% load otree static %}
 
 {% block title %}
-    Beschreibung von Optionen
+    Memory Task
 {% endblock %}
 
 {% block content %}
+<p> Schätzen Sie den CO2e-Wert basierend auf Ihrem Wissen und Erfahrungen. </p>
 <p> Dies ist Runde Nummer {{ round_number }} von {{ Constants.num_rounds }}. </p>
 
 <div class="row">
     <div class="col-6">
-        <div style="margin-left:auto; margin-right:auto;">  
-            <h3> {{ ADescription }} </h3>
-            <img style="width:50%; max-width:200px; " src="{{ APicture }}">  
-            <input type="number" name="AChoice" id="achoice" class="form-control" placeholder="g CO2e" />
-            {{ formfield_errors 'AChoice' }}
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <img style="display: block; margin-left: auto; margin-right: auto; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ APicture }}">
         </div>
+        <div style="text-align: left; margin-top: 10px;">
+            <h4 style="margin: 0;">{{ ADescription }}</h4>
+            <div style="margin-top: 5px; display: flex; align-items: center;">
+                <input type="number" name="AChoice" id="achoice" class="form-control" style="width: 30%;" />
+                <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+            </div>
+        </div>
+        {{ formfield_errors 'AChoice' }}
     </div>
 
     <div class="col-6">
-        <div style="margin-left:auto; margin-right:auto;">
-            <h3 style="text-align:left"> {{ BDescription }} </h3>
-            <img style="width:50%; max-width:200px;  margin-right: 2vw;" src="{{ BPicture }}">
-            <input type="number" name="BChoice" id="bchoice" class="form-control" placeholder="g CO2e" />
-            {{ formfield_errors 'BChoice' }}
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <img style="display: block; margin-left: auto; margin-right: auto; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ BPicture }}">
         </div>
+        <div style="text-align: left; margin-top: 10px;">
+            <h4 style="margin: 0;">{{ BDescription }}</h4>
+            <div style="margin-top: 5px; display: flex; align-items: center;">
+                <input type="number" name="BChoice" id="bchoice" class="form-control" style="width: 30%;" />
+                <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+            </div>
+        </div>
+        {{ formfield_errors 'BChoice' }}
     </div>
 </div>
 
-<div style="text-align: center; margin-top: 20px;">
-    <button type="submit" name="submit" id="id_submit" class="btn btn-primary btn-large">Weiter</button>
+<div style="text-align: left; margin-top: 20px;">
+    {{ next_button }}
 </div>
 
 {% endblock %}
@@ -37,7 +48,3 @@
 {% block scripts %}
 
 {% endblock %}
-
-
-
-
