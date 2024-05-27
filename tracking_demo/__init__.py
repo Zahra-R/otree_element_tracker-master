@@ -1,6 +1,7 @@
 from otree.api import *
 import json
 import random
+import itertools
 
 class C(BaseConstants):
     NAME_IN_URL = 'tracking_demo'
@@ -11,20 +12,15 @@ class C(BaseConstants):
     NUM_ROUNDS = 15
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        groups = self.get_groups()
-        group_labels = [random.choice(["label", "label plus norm", "control group"]) for _ in range(len(groups))]
-        for group, label in zip(groups, group_labels):
-            group.label = label
-            for player in group.get_players():
-                player.group_label = label
+    pass
 
 class Group(BaseGroup):
-    label = models.StringField(choices=["label", "label plus norm", "control group"])
+    pass
 
 class Player(BasePlayer):
     choice = models.StringField(choices=['A', 'B'])
-    sustainableLeft = models.BooleanField()  # Variable hinzugefügt
+    sustainableLeft = models.BooleanField()
+    treatment = models.StringField()
 
     def store_tracking_data(self, payload):
         HoverEvent.create(
@@ -47,12 +43,26 @@ class HoverEvent(models.ExtraModel):
     attributeValue = models.StringField()
 
 def creating_session(subsession: Subsession):
-    for player in subsession.get_players():
-        if subsession.round_number == 1: 
+    if subsession.round_number == 1:
+        treatments = itertools.cycle(["label", "norm", "control"])
+        for player in subsession.get_players():
+            player.treatment = next(treatments)
+            player.participant.vars['treatment'] = player.treatment
             player.participant.orderStimuli = random.sample(range(0, C.NUM_ROUNDS), C.NUM_ROUNDS)
 
 def custom_export(players):
-    yield ["session", "participant_code", "round_number", "id_in_group", "element_id", "enter_time", "leave_time", "duration", "attributeType", "attributeValue"]
+    yield [
+        "session",
+        "participant_code",
+        "round_number",
+        "id_in_group",
+        "element_id",
+        "enter_time",
+        "leave_time",
+        "duration",
+        "attributeType",
+        "attributeValue"
+    ]
     for player in players:
         for e in HoverEvent.filter(player=player):
             yield [
@@ -62,7 +72,7 @@ def custom_export(players):
                 player.id_in_group,
                 e.element_id,
                 e.enter_time,
-                e.leave_time, 
+                e.leave_time,
                 e.duration,
                 e.attributeType,
                 e.attributeValue
@@ -82,9 +92,10 @@ class Tracker(Page):
         roundStimulus = C.stimulitable[player.participant.orderStimuli[round_number-1]]
 
         player.sustainableLeft = random.choice([True, False])
+        player.treatment = player.participant.vars['treatment']
 
         if player.sustainableLeft == 0:
-            return {
+            base_data = {
                 'round_number': round_number,
                 'APicture': "/static/global/images/" + roundStimulus['PictureB'],
                 'APrice': roundStimulus['PriceB'],
@@ -96,9 +107,13 @@ class Tracker(Page):
                 'BProtein': roundStimulus['ProteinA'],
                 'AName': roundStimulus['NameB'],
                 'BName': roundStimulus['NameA'],
+                'sustainable_name': roundStimulus['NameA'],
+                'sustainable_price': roundStimulus['PriceA'],
+                'sustainable_co2': roundStimulus['CO2A'],
+                'sustainable_protein': roundStimulus['ProteinA'],
             }
         else:
-            return {
+            base_data = {
                 'round_number': round_number,
                 'APicture': "/static/global/images/" + roundStimulus['PictureA'],
                 'APrice': roundStimulus['PriceA'],
@@ -110,17 +125,56 @@ class Tracker(Page):
                 'BProtein': roundStimulus['ProteinB'],
                 'AName': roundStimulus['NameA'],
                 'BName': roundStimulus['NameB'],
+                'sustainable_name': roundStimulus['NameB'],
+                'sustainable_price': roundStimulus['PriceB'],
+                'sustainable_co2': roundStimulus['CO2B'],
+                'sustainable_protein': roundStimulus['ProteinB'],
             }
+
+        if player.treatment == 'label':
+            base_data.update({
+                'label_info': 'Information specific to label treatment',
+            })
+        elif player.treatment == 'norm':
+            base_data.update({
+                'norm_info': 'Information specific to norm treatment',
+            })
+        elif player.treatment == 'control':
+            base_data.update({
+                'control_info': 'Information specific to control treatment',
+            })
+
+        return base_data
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         choice = player.choice
         if player.sustainableLeft:
-            player.choice = 'sustainable' if choice == 'A' else 'non-sustainable'
+            if choice == 'A':
+                player.participant.vars['chosen_option'] = 'sustainable'
+            else:
+                player.participant.vars['chosen_option'] = 'non-sustainable'
         else:
-            player.choice = 'sustainable' if choice == 'B' else 'non-sustainable'
+            if choice == 'B':
+                player.participant.vars['chosen_option'] = 'sustainable'
+            else:
+                player.participant.vars['chosen_option'] = 'non-sustainable'
 
-page_sequence = [Tracker]
+class SustainablePage(Page):
+    def is_displayed(self):
+        return self.participant.vars['chosen_option'] == 'sustainable'
 
+    def vars_for_template(self):
+        return {
+        }
 
+class NonSustainablePage(Page):
+    def is_displayed(self):
+        return self.participant.vars['chosen_option'] == 'non-sustainable'
+
+    def vars_for_template(self):
+        return {
+        }
+
+page_sequence = [Tracker, SustainablePage, NonSustainablePage]
 

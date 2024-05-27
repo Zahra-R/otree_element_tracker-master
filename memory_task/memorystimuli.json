@@ -16,10 +16,10 @@
     },
     {
      "StimulusID": 3,
-     "PictureA": "icecream.webp",
-     "PictureB": "sorbet.webp",
-     "DescriptionA": "Eis",
-     "DescriptionB": "Sorbet"
+     "PictureA": "beefjerky.webp",
+     "PictureB": "trailmix.webp",
+     "DescriptionA": "Beefjerky",
+     "DescriptionB": "Trailmix"
     },
     {
      "StimulusID": 4,
@@ -44,9 +44,9 @@
     },
     {
      "StimulusID": 7,
-     "PictureA": "oatmilk.webp",
-     "PictureB": "cowmilk.webp",
-     "DescriptionA": "Beschreibungsfeld A",
-     "DescriptionB": "Beschreibungsfeld B"
+     "PictureA": "papaya.webp",
+     "PictureB": "banana.webp",
+     "DescriptionA": "Papaya",
+     "DescriptionB": "Banane"
     }
 ]
