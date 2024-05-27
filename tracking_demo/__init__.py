@@ -178,18 +178,3 @@ class NonSustainablePage(Page):
 
 page_sequence = [Tracker, SustainablePage, NonSustainablePage]
 
-            'round_number': round_number,
-            'APicture': " /static/global/images/" + roundStimulus['PictureA'], 
-            'APrice': roundStimulus['PriceA'], 
-            'ACO2':  roundStimulus['CO2A'], 
-            'AProtein':  roundStimulus['ProteinA'], 
-            'BPicture': " /static/global/images/" + roundStimulus['PictureB'], 
-            'BPrice': roundStimulus['PriceB'], 
-            'BCO2':  roundStimulus['CO2B'], 
-            'BProtein':  roundStimulus['ProteinB'], 
-            'AName':  roundStimulus['NameA'], 
-            'BName':  roundStimulus['NameB'], 
-        } 
-
-
-page_sequence = [Tracker]
