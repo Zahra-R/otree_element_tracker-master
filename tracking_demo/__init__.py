@@ -133,16 +133,24 @@ class Tracker(Page):
 
         if player.treatment == 'label':
             base_data.update({
-                'label_info': 'Information specific to label treatment',
             })
+            if player.sustainableLeft == 0:
+                base_data['template'] = 'tracking_demo/Label_nonsustainable.html'
+            else:
+                base_data['template'] = 'tracking_demo/Label_sustainable.html'
+
         elif player.treatment == 'norm':
             base_data.update({
-                'norm_info': 'Information specific to norm treatment',
             })
+            if player.sustainableLeft == 0:
+                base_data['template'] = 'tracking_demo/Norm_nonsustainable.html'
+            else:
+                base_data['template'] = 'tracking_demo/Norm_sustainable.html'
+
         elif player.treatment == 'control':
             base_data.update({
-                'control_info': 'Information specific to control treatment',
             })
+            base_data['template'] = 'global/blank_page.html'
 
         return base_data
 
@@ -160,21 +168,32 @@ class Tracker(Page):
             else:
                 player.participant.vars['chosen_option'] = 'non-sustainable'
 
-class SustainablePage(Page):
+class Label_sustainable(Page):
     def is_displayed(self):
-        return self.participant.vars['chosen_option'] == 'sustainable'
+        return self.participant.vars['treatment'] == 'label' and self.participant.vars['chosen_option'] == 'sustainable'
 
     def vars_for_template(self):
-        return {
-        }
+        return {}
 
-class NonSustainablePage(Page):
+class Label_nonsustainable(Page):
     def is_displayed(self):
-        return self.participant.vars['chosen_option'] == 'non-sustainable'
+        return self.participant.vars['treatment'] == 'label' and self.participant.vars['chosen_option'] == 'non-sustainable'
 
     def vars_for_template(self):
-        return {
-        }
+        return {}
 
-page_sequence = [Tracker, SustainablePage, NonSustainablePage]
+class Norm_sustainable(Page):
+    def is_displayed(self):
+        return self.participant.vars['treatment'] == 'norm' and self.participant.vars['chosen_option'] == 'sustainable'
 
+    def vars_for_template(self):
+        return {}
+
+class Norm_nonsustainable(Page):
+    def is_displayed(self):
+        return self.participant.vars['treatment'] == 'norm' and self.participant.vars['chosen_option'] == 'non-sustainable'
+
+    def vars_for_template(self):
+        return {}
+
+page_sequence = [Tracker, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]
