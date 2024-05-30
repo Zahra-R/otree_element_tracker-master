@@ -21,6 +21,7 @@ class Player(BasePlayer):
     choice = models.StringField(choices=['A', 'B'])
     sustainableLeft = models.BooleanField()
     treatment = models.StringField()
+    choice_sustainable = models.BooleanField()
 
     def store_tracking_data(self, payload):
         HoverEvent.create(
@@ -94,7 +95,7 @@ class Tracker(Page):
         player.sustainableLeft = random.choice([True, False])
         player.treatment = player.participant.vars['treatment']
 
-        if player.sustainableLeft == 0:
+        if player.sustainableLeft == 1:
             base_data = {
                 'round_number': round_number,
                 'APicture': "/static/global/images/" + roundStimulus['PictureB'],
@@ -167,33 +168,34 @@ class Tracker(Page):
                 player.participant.vars['chosen_option'] = 'sustainable'
             else:
                 player.participant.vars['chosen_option'] = 'non-sustainable'
+        print(player.participant.vars)
 
 class Label_sustainable(Page):
-    def is_displayed(self):
-        return self.participant.vars['treatment'] == 'label' and self.participant.vars['chosen_option'] == 'sustainable'
+    def is_displayed(player: Player):
+        return player.participant.vars['treatment'] == 'label' and player.participant.vars['chosen_option'] == 'sustainable'
 
-    def vars_for_template(self):
+    def vars_for_template(player: Player):
         return {}
 
 class Label_nonsustainable(Page):
-    def is_displayed(self):
-        return self.participant.vars['treatment'] == 'label' and self.participant.vars['chosen_option'] == 'non-sustainable'
+    def is_displayed(player: Player):
+        return player.participant.vars['treatment'] == 'label' and player.participant.vars['chosen_option'] == 'non-sustainable'
 
-    def vars_for_template(self):
+    def vars_for_template(player: Player):
         return {}
 
 class Norm_sustainable(Page):
-    def is_displayed(self):
-        return self.participant.vars['treatment'] == 'norm' and self.participant.vars['chosen_option'] == 'sustainable'
+    def is_displayed(player: Player):
+        return player.participant.vars['treatment'] == 'norm' and player.participant.vars['chosen_option'] == 'sustainable'
 
     def vars_for_template(self):
         return {}
 
 class Norm_nonsustainable(Page):
-    def is_displayed(self):
-        return self.participant.vars['treatment'] == 'norm' and self.participant.vars['chosen_option'] == 'non-sustainable'
+    def is_displayed(player: Player):
+        return player.participant.vars['treatment'] == 'norm' and player.participant.vars['chosen_option'] == 'non-sustainable'
 
-    def vars_for_template(self):
+    def vars_for_template(player: Player):
         return {}
 
 page_sequence = [Tracker, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]
