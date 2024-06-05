@@ -54,16 +54,16 @@
  },
  {
   "StimulusID": 5,
-  "PictureA": "apple.webp",
-  "PriceA": 0.49,
-  "CO2A": 72,
+  "PictureA": "mango.webp",
+  "PriceA": 0.36,
+  "CO2A": 352,
   "ProteinA": 1,
-  "PictureB": "mango.webp",
-  "PriceB": 0.36,
-  "CO2B": 352,
+  "PictureB": "apple.webp",
+  "PriceB": 0.49,
+  "CO2B": 72,
   "ProteinB": 1,
-  "NameA": "Apfel",
-  "NameB": "Mango"
+  "NameA": "Mango",
+  "NameB": "Apfel"
  },
  {
   "StimulusID": 6,
