@@ -51,6 +51,9 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    email = models.StringField(
+        blank=True
+    )
 
 
 # PAGES
@@ -60,7 +63,8 @@ class Demographics(Page):
 
 
 class Goodbye(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['email']
 
 
 class ResultsWaitPage(WaitPage):
@@ -72,3 +76,5 @@ class ResultsWaitPage(WaitPage):
 
 
 page_sequence = [Demographics, Goodbye]
+
+

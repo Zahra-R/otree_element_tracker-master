@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<p>Ich möchte mich herzlich bei Ihnen dafür bedanken, dass Sie sich die Zeit genommen haben, an meiner Studie teilzunehmen.</p>
+<p>Vielen Dank für Ihre Teilnahme an meiner Studie!</p>
+<p><strong>Sie haben nun die Möglichkeit, an einer Verlosung teilzunehmen.</strong></p>
+<p>Hierbei handelt es sich um einen exklusiven Lebensmittel-Geschenkkorb, der Ihnen per Post zugestellt wird. Geben Sie hierfür eine E-Mail Adresse an, über die wir Sie benachrichtigen können.</p>
+<p>Um die Studie zu beenden, klicken Sie bitte auf "Absenden".</p>
 
-    
-    {{ form }}
-
-    
-    {{ next_button }}
+<form method="post">
+    {{ form.email }}<br>
+    <button type="submit" class="btn btn-primary">Absenden</button>
+</form>
 
 {% endblock %}
