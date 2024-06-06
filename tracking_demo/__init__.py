@@ -168,6 +168,7 @@ class Tracker(Page):
                 player.participant.vars['chosen_option'] = 'sustainable'
             else:
                 player.participant.vars['chosen_option'] = 'non-sustainable'
+        player.choice_sustainable = player.participant.vars['chosen_option'] == 'sustainable'
         print(player.participant.vars)
 
 class Label_sustainable(Page):
@@ -192,7 +193,7 @@ class Norm_sustainable(Page):
         roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
         choice = player.choice
 
-        if player.sustainableLeft:
+        if player.sustainableLeft  == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
             AName = roundStimulus['NameA']
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
@@ -233,7 +234,7 @@ class Norm_nonsustainable(Page):
         roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
         choice = player.choice
 
-        if player.sustainableLeft:
+        if player.sustainableLeft == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
             AName = roundStimulus['NameA']
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
