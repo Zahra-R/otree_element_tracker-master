@@ -45,7 +45,7 @@ class HoverEvent(models.ExtraModel):
 
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
-        treatments = itertools.cycle(["label", "norm", "control"])
+        treatments = itertools.cycle(["norm", "label", "control"])
         for player in subsession.get_players():
             player.treatment = next(treatments)
             player.participant.vars['treatment'] = player.treatment
@@ -188,14 +188,82 @@ class Norm_sustainable(Page):
     def is_displayed(player: Player):
         return player.participant.vars['treatment'] == 'norm' and player.participant.vars['chosen_option'] == 'sustainable'
 
-    def vars_for_template(self):
-        return {}
+    def vars_for_template(player: Player):
+        roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
+        choice = player.choice
+
+        if player.sustainableLeft:
+            APicture = "/static/global/images/" + roundStimulus['PictureA']
+            AName = roundStimulus['NameA']
+            BPicture = "/static/global/images/" + roundStimulus['PictureB']
+            BName = roundStimulus['NameB']
+            chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
+            ALabelPath = "/static/global/images/greenlabel.webp"
+            BLabelPath = "/static/global/images/redlabel.webp"
+        else:
+            APicture = "/static/global/images/" + roundStimulus['PictureB']
+            AName = roundStimulus['NameB']
+            BPicture = "/static/global/images/" + roundStimulus['PictureA']
+            BName = roundStimulus['NameA']
+            chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+            ALabelPath = "/static/global/images/redlabel.webp"
+            BLabelPath = "/static/global/images/greenlabel.webp"
+
+
+        return {
+            'APicture': APicture,
+            'AName': AName,
+            'AOpacity': 1.0 if choice == 'A' else 0.5,
+            'AMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'A' else '',
+            'BPicture': BPicture,
+            'BName': BName,
+            'BOpacity': 1.0 if choice == 'B' else 0.5,
+            'BMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'B' else '',
+            'ALabelPath': ALabelPath,
+            'BLabelPath': BLabelPath,
+            'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5
+        }
 
 class Norm_nonsustainable(Page):
     def is_displayed(player: Player):
         return player.participant.vars['treatment'] == 'norm' and player.participant.vars['chosen_option'] == 'non-sustainable'
 
     def vars_for_template(player: Player):
-        return {}
+        roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
+        choice = player.choice
+
+        if player.sustainableLeft:
+            APicture = "/static/global/images/" + roundStimulus['PictureA']
+            AName = roundStimulus['NameA']
+            BPicture = "/static/global/images/" + roundStimulus['PictureB']
+            BName = roundStimulus['NameB']
+            chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
+            ALabelPath = "/static/global/images/greenlabel.webp"
+            BLabelPath = "/static/global/images/redlabel.webp"
+
+        else:
+            APicture = "/static/global/images/" + roundStimulus['PictureB']
+            AName = roundStimulus['NameB']
+            BPicture = "/static/global/images/" + roundStimulus['PictureA']
+            BName = roundStimulus['NameA']
+            chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+            ALabelPath = "/static/global/images/redlabel.webp"
+            BLabelPath = "/static/global/images/greenlabel.webp"
+
+        return {
+            'APicture': APicture,
+            'AName': AName,
+            'AOpacity': 1.0 if choice == 'A' else 0.5,
+            'AMessage': 'Deine Wahl' if choice == 'A' else '',
+            'BPicture': BPicture,
+            'BName': BName,
+            'BOpacity': 1.0 if choice == 'B' else 0.5,
+            'BMessage': 'Deine Wahl' if choice == 'B' else '',
+            'ALabelPath': ALabelPath,
+            'BLabelPath': BLabelPath,
+            'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5
+        }
 
 page_sequence = [Tracker, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]

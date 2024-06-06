@@ -2,8 +2,32 @@
 {% load static %}
 
 {% block content %}
-    <p>nachhaltige Wahl in der Norm-Gruppe</p>
-    <form method="post">
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+        <div style="flex: 1; text-align: center;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="{{ APicture }}" alt="{{ AName }}" style="max-width: 200px; height: 300px; width: auto; opacity: {{ AOpacity }};">
+                <img src="{{ ALabelPath }}" alt="Sustainable Label" style="width: 50%; height: auto; opacity: {{ ALabelOpacity }}; margin-top: 10px;">
+                <p style="font-weight: bold; margin-top: 10px;">{{ AMessage }}</p>
+            </div>
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="{{ BPicture }}" alt="{{ BName }}" style="max-width: 200px; height: 300px; width: auto; opacity: {{ BOpacity }};">
+                <img src="{{ BLabelPath }}" alt="Non-Sustainable Label" style="width: 50%; height: auto; opacity: {{ BLabelOpacity }}; margin-top: 10px;">
+                <p style="font-weight: bold; margin-top: 10px;">{{ BMessage }}</p>
+            </div>
+        </div>
+    </div>
+    <form method="post" style="text-align: center;">
         <button type="submit" class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}
+
+
+
+
+
+
+
+
+
