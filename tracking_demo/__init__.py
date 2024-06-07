@@ -199,16 +199,16 @@ class Norm_sustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
-            ALabelPath = "/static/global/images/greenlabel.webp"
-            BLabelPath = "/static/global/images/redlabel.webp"
+            BLabelPath = "/static/global/images/greenlabel.webp"
+            ALabelPath = "/static/global/images/redlabel.webp"
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
-            ALabelPath = "/static/global/images/redlabel.webp"
-            BLabelPath = "/static/global/images/greenlabel.webp"
+            BLabelPath = "/static/global/images/redlabel.webp"
+            ALabelPath = "/static/global/images/greenlabel.webp"
 
 
         return {
@@ -240,8 +240,8 @@ class Norm_nonsustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
-            ALabelPath = "/static/global/images/greenlabel.webp"
-            BLabelPath = "/static/global/images/redlabel.webp"
+            BLabelPath = "/static/global/images/greenlabel.webp"
+            ALabelPath = "/static/global/images/redlabel.webp"
 
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
@@ -249,8 +249,8 @@ class Norm_nonsustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
-            ALabelPath = "/static/global/images/redlabel.webp"
-            BLabelPath = "/static/global/images/greenlabel.webp"
+            BLabelPath = "/static/global/images/redlabel.webp"
+            ALabelPath = "/static/global/images/greenlabel.webp"
 
         return {
             'APicture': APicture,

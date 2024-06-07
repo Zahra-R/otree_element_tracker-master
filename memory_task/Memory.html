@@ -12,21 +12,22 @@
 <div class="row">
     <div class="col-6">
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
-            <img style="display: block; margin-left: auto; margin-right: auto; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ APicture }}">
-        </div>
-        <div style="text-align: left; margin-top: 10px;">
-            <h4 style="margin: 0;">{{ ADescription }}</h4>
-            <div style="margin-top: 5px; display: flex; align-items: center;">
-                <input type="number" name="AChoice" id="achoice" class="form-control" style="width: 30%;" />
-                <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+            <img style="display: block; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ APicture }}">
+            <div style="text-align: left; margin-top: 10px;">
+                <h4 style="margin: 0;">{{ ADescription }}</h4>
+                <div style="margin-top: 5px; display: flex; align-items: center;">
+                    <input type="number" name="AChoice" id="achoice" class="form-control" style="width: 30%;" />
+                    <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+                </div>
             </div>
         </div>
+       
         {{ formfield_errors 'AChoice' }}
     </div>
 
     <div class="col-6">
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
-            <img style="display: block; margin-left: auto; margin-right: auto; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ BPicture }}">
+            <img style="display: block; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ BPicture }}">
         </div>
         <div style="text-align: left; margin-top: 10px;">
             <h4 style="margin: 0;">{{ BDescription }}</h4>
