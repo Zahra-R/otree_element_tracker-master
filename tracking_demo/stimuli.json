@@ -4,27 +4,31 @@
   "StimulusID": 1,
   "PictureA": "baconegg.webp",
   "PriceA": 3,
-  "CO2A": 502,
+  "CO2A": 801,
   "ProteinA": 20.4,
   "PictureB": "hummus.webp",
   "PriceB": 1.60,
-  "CO2B": 123,
+  "CO2B": 110,
   "ProteinB": 9,
   "NameA": "Eier mit Speck",
-  "NameB": "Hummus mit Brot"
+  "LabelA": "labelE",
+  "NameB": "Hummus mit Brot",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 2,
   "PictureA": "cereal.webp",
   "PriceA": 1.25,
-  "CO2A": 1148,
+  "CO2A": 641,
   "ProteinA": 9.4,
   "PictureB": "oats.webp",
   "PriceB": 1.18,
-  "CO2B": 229,
+  "CO2B": 166,
   "ProteinB": 11,
   "NameA": "Cerealien mit Kuhmilch",
-  "NameB": "Haferflocken mit pflanzlicher Milch"
+  "LabelA": "labelB",
+  "NameB": "Haferflocken mit pflanzlicher Milch",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 3,
@@ -34,23 +38,27 @@
   "ProteinA": 4.4,
   "PictureB": "sorbet.webp",
   "PriceB": 7,
-  "CO2B": 84,
+  "CO2B": 280,
   "ProteinB": 0,
-  "NameA": "Eis",
-  "NameB": "Sorbet"
+  "NameA": "Schokoladeneis",
+  "LabelA": "labelC",
+  "NameB": "Früchtesorbet",
+  "LabelB": "labelB"
  },
  {
   "StimulusID": 4,
   "PictureA": "chocolate.webp",
   "PriceA": 0.75,
-  "CO2A": 173,
+  "CO2A": 346,
   "ProteinA": 2.7,
   "PictureB": "pbjsandwich.webp",
   "PriceB": 0.4,
-  "CO2B": 82,
+  "CO2B": 125,
   "ProteinB": 11,
-  "NameA": "Schokolade",
-  "NameB": "Erdnussbutter Sandwich"
+  "NameA": "Vollmilchschokolade",
+  "LabelA": "labelE",
+  "NameB": "Erdnussbutter-Marmeladen Sandwich",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 5,
@@ -63,20 +71,24 @@
   "CO2B": 72,
   "ProteinB": 1,
   "NameA": "Mango",
-  "NameB": "Apfel"
+  "LabelA": "labelD",
+  "NameB": "Apfel",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 6,
   "PictureA": "granolabar.webp",
   "PriceA": 0.51,
-  "CO2A": 219,
+  "CO2A": 181,
   "ProteinA": 2.3,
   "PictureB": "cracker.webp",
   "PriceB": 0.81,
-  "CO2B": 37,
+  "CO2B": 52,
   "ProteinB": 3.5,
   "NameA": "Yoghurt Müsliriegel",
-  "NameB": "Cracker"
+  "LabelA": "labelC",
+  "NameB": "Cracker",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 7,
@@ -89,7 +101,9 @@
   "CO2B": 260,
   "ProteinB": 22,
   "NameA": "Mac and Cheese",
-  "NameB": "Kichererbsen Curry"
+  "LabelA": "labelE",
+  "NameB": "Kichererbsen Curry",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 8,
@@ -102,7 +116,9 @@
   "CO2B": 300,
   "ProteinB": 23.5,
   "NameA": "Hamburger",
-  "NameB": "Falafel Sandwich"
+  "LabelA": "labelE",
+  "NameB": "Falafel Sandwich",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 9,
@@ -115,7 +131,9 @@
   "CO2B": 86,
   "ProteinB": 38,
   "NameA": "Salami Pizza",
-  "NameB": "Chili sin Carne"
+  "LabelA": "labelE",
+  "NameB": "Chili sin Carne",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 10,
@@ -128,7 +146,9 @@
   "CO2B": 815,
   "ProteinB": 43,
   "NameA": "Steak",
-  "NameB": "Moussaka"
+  "LabelA": "labelE",
+  "NameB": "Vegetarisches Moussaka",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 11,
@@ -141,7 +161,9 @@
   "CO2B": 352,
   "ProteinB": 14,
   "NameA": "Spaghetti Meatballs",
-  "NameB": "Spaghetti Marinara"
+  "LabelA": "labelE",
+  "NameB": "Spaghetti Marinara",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 12,
@@ -153,8 +175,10 @@
   "PriceB": 17.50,
   "CO2B": 392,
   "ProteinB": 17,
-  "NameA": "Lasagne",
-  "NameB": "Pasta Primavera"
+  "NameA": "Lasagne mit Hackfleisch",
+  "LabelA": "labelE",
+  "NameB": "Pasta Primavera",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 13,
@@ -166,8 +190,10 @@
   "PriceB": 19,
   "CO2B": 501,
   "ProteinB": 24,
-  "NameA": "Roastbeef",
-  "NameB": "Veganer Burrito"
+  "NameA": "Roastbeef Sandwich",
+  "LabelA": "labelE",
+  "NameB": "Veganer Burrito",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 14,
@@ -180,7 +206,9 @@
   "CO2B": 112,
   "ProteinB": 4,
   "NameA": "Beef Jerky",
-  "NameB": "Trailmix"
+  "LabelA": "labelE",
+  "NameB": "Trailmix",
+  "LabelB": "labelA"
  },
  {
   "StimulusID": 15,
@@ -193,6 +221,8 @@
   "CO2B": 1379,
   "ProteinB": 35,
   "NameA": "Lammkotlett",
-  "NameB": "Halloumi"
+  "LabelA": "labelE",
+  "NameB": "Halloumi",
+  "LabelB": "labelA"
  }
 ]

@@ -99,10 +99,12 @@ class Tracker(Page):
             base_data = {
                 'round_number': round_number,
                 'APicture': "/static/global/images/" + roundStimulus['PictureB'],
+                'ALabel': "/static/global/images/" + roundStimulus['LabelB'] + ".webp",
                 'APrice': roundStimulus['PriceB'],
                 'ACO2': roundStimulus['CO2B'],
                 'AProtein': roundStimulus['ProteinB'],
                 'BPicture': "/static/global/images/" + roundStimulus['PictureA'],
+                'BLabel': "/static/global/images/" + roundStimulus['LabelA'] + ".webp",
                 'BPrice': roundStimulus['PriceA'],
                 'BCO2': roundStimulus['CO2A'],
                 'BProtein': roundStimulus['ProteinA'],
@@ -117,10 +119,12 @@ class Tracker(Page):
             base_data = {
                 'round_number': round_number,
                 'APicture': "/static/global/images/" + roundStimulus['PictureA'],
+                'ALabel': "/static/global/images/" + roundStimulus['LabelA'] + ".webp",
                 'APrice': roundStimulus['PriceA'],
                 'ACO2': roundStimulus['CO2A'],
                 'AProtein': roundStimulus['ProteinA'],
                 'BPicture': "/static/global/images/" + roundStimulus['PictureB'],
+                'BLabel': "/static/global/images/" + roundStimulus['LabelB'] + ".webp",
                 'BPrice': roundStimulus['PriceB'],
                 'BCO2': roundStimulus['CO2B'],
                 'BProtein': roundStimulus['ProteinB'],
@@ -196,32 +200,32 @@ class Norm_sustainable(Page):
         if player.sustainableLeft  == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
             AName = roundStimulus['NameA']
+            ALabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
+            BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
-            ALabelPath = "/static/global/images/greenlabel.webp"
-            BLabelPath = "/static/global/images/redlabel.webp"
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"  # Anpassung hier
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"  # Anpassung hier
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
-            ALabelPath = "/static/global/images/redlabel.webp"
-            BLabelPath = "/static/global/images/greenlabel.webp"
 
 
         return {
             'APicture': APicture,
             'AName': AName,
+            'ALabel': ALabel,
             'AOpacity': 1.0 if choice == 'A' else 0.5,
             'AMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'A' else '',
             'BPicture': BPicture,
             'BName': BName,
+            'BLabel': BLabel,
             'BOpacity': 1.0 if choice == 'B' else 0.5,
             'BMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'B' else '',
-            'ALabelPath': ALabelPath,
-            'BLabelPath': BLabelPath,
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
             'BLabelOpacity': 1.0 if choice == 'B' else 0.5
         }
@@ -237,32 +241,32 @@ class Norm_nonsustainable(Page):
         if player.sustainableLeft == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
             AName = roundStimulus['NameA']
+            ALabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
+            BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
-            ALabelPath = "/static/global/images/greenlabel.webp"
-            BLabelPath = "/static/global/images/redlabel.webp"
 
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
-            ALabelPath = "/static/global/images/redlabel.webp"
-            BLabelPath = "/static/global/images/greenlabel.webp"
 
         return {
             'APicture': APicture,
             'AName': AName,
+            'ALabel': ALabel,
             'AOpacity': 1.0 if choice == 'A' else 0.5,
             'AMessage': 'Deine Wahl' if choice == 'A' else '',
             'BPicture': BPicture,
             'BName': BName,
+            'BLabel': BLabel,
             'BOpacity': 1.0 if choice == 'B' else 0.5,
             'BMessage': 'Deine Wahl' if choice == 'B' else '',
-            'ALabelPath': ALabelPath,
-            'BLabelPath': BLabelPath,
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
             'BLabelOpacity': 1.0 if choice == 'B' else 0.5
         }
