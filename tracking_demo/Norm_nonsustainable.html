@@ -2,19 +2,76 @@
 {% load static %}
 
 {% block content %}
+    <style>
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-left: -100px; 
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .message-container p {
+            margin: 0;
+            text-align: center;
+            line-height: 1.1;
+        }
+        .co2-value {
+            font-size: xx-large;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .image-and-label-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-and-label-container img {
+            margin: 0 5px;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px; 
+        }
+        form {
+            margin-top: 30px; 
+        }
+    </style>
     <div style="display: flex; justify-content: space-around; align-items: center;">
         <div style="flex: 1; text-align: center;">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <img src="{{ APicture }}" alt="{{ AName }}" style="max-width: 150px; height: auto; width: auto; opacity: {{ AOpacity }};">
-                <img src="{{ ALabel }}" alt="Sustainable Label" style="width: 25%; height: auto; opacity: {{ ALabelOpacity }}; margin-top: 10px;">
-                <p style="font-weight: bold; margin-top: 10px;">{{ AMessage }}</p>
+            <div class="image-and-label-container">
+                <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
+                <img src="{{ ALabel }}" alt="Non-Sustainable Label" style="width: 25%; height: auto; opacity: {{ ALabelOpacity }}; margin-left: 10px;">
+            </div>
+            <div class="message-container">
+                {% if chosen == 'A' %}
+                    <p style="font-weight: bold;">Deine Wahl verursacht</p>
+                    <p class="co2-value">{{ AMessage | safe }}</p>
+                {% else %}
+                    <p>&nbsp;</p>
+                    <p class="co2-value">&nbsp;</p>
+                {% endif %}
             </div>
         </div>
         <div style="flex: 1; text-align: center;">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <img src="{{ BPicture }}" alt="{{ BName }}" style="max-width: 150px; height: auto; width: auto; opacity: {{ BOpacity }};">
-                <img src="{{ BLabel }}" alt="Non-Sustainable Label" style="width: 25%; height: auto; opacity: {{ BLabelOpacity }}; margin-top: 10px;">
-                <p style="font-weight: bold; margin-top: 10px;">{{ BMessage }}</p>
+            <div class="image-and-label-container">
+                <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">
+                <img src="{{ BLabel }}" alt="Non-Sustainable Label" style="width: 25%; height: auto; opacity: {{ BLabelOpacity}}; margin-left: 10px;">
+            </div>
+            <div class="message-container">
+                {% if chosen == 'B' %}
+                    <p style="font-weight: bold;">Deine Wahl verursacht</p>
+                    <p class="co2-value">{{ BMessage | safe }}</p>
+                {% else %}
+                    <p>&nbsp;</p>
+                    <p class="co2-value">&nbsp;</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -22,6 +79,11 @@
         <button type="submit" class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}
+
+
+
+
+
 
 
 

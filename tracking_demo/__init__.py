@@ -180,14 +180,102 @@ class Label_sustainable(Page):
         return player.participant.vars['treatment'] == 'label' and player.participant.vars['chosen_option'] == 'sustainable'
 
     def vars_for_template(player: Player):
-        return {}
+        roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
+        choice = player.choice
+
+        if player.sustainableLeft  == 0:
+            APicture = "/static/global/images/" + roundStimulus['PictureA']
+            AName = roundStimulus['NameA']
+            ALabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
+            BPicture = "/static/global/images/" + roundStimulus['PictureB']
+            BName = roundStimulus['NameB']
+            BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
+            chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
+
+        else:
+            APicture = "/static/global/images/" + roundStimulus['PictureB']
+            AName = roundStimulus['NameB']
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"  
+            BPicture = "/static/global/images/" + roundStimulus['PictureA']
+            BName = roundStimulus['NameA']
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"  
+            chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+
+        return {
+            'APicture': APicture,
+            'AName': AName,
+            'ALabel': ALabel,
+            'AOpacity': 1.0 if choice == 'A' else 0.5,
+            'AMessage': '' if choice == 'A' else '',
+            'BPicture': BPicture,
+            'BName': BName,
+            'BLabel': BLabel,
+            'BOpacity': 1.0 if choice == 'B' else 0.5,
+            'BMessage': '' if choice == 'B' else '',
+            'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5
+        }
 
 class Label_nonsustainable(Page):
     def is_displayed(player: Player):
         return player.participant.vars['treatment'] == 'label' and player.participant.vars['chosen_option'] == 'non-sustainable'
-
+    
     def vars_for_template(player: Player):
-        return {}
+        roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
+        choice = player.choice
+
+        if player.sustainableLeft == 0:
+            APicture = "/static/global/images/" + roundStimulus['PictureA']
+            AName = roundStimulus['NameA']
+            ALabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
+            BPicture = "/static/global/images/" + roundStimulus['PictureB']
+            BName = roundStimulus['NameB']
+            BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
+            chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
+
+        else:
+            APicture = "/static/global/images/" + roundStimulus['PictureB']
+            AName = roundStimulus['NameB']
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
+            BPicture = "/static/global/images/" + roundStimulus['PictureA']
+            BName = roundStimulus['NameA']
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
+            chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+
+        if label == 'labelC':
+            color = 'orange'
+        elif label == 'labelD':
+            color = 'darkorange'
+        elif label == 'labelE':
+            color = 'red'
+        elif label in ['labelA', 'labelB']:
+            color = 'red'  
+        else:
+            color = 'black'
+
+        message = f'<span style="color: {color}; font-size: xx-large; font-weight: bold;">{co2e_value} gCO2e</span>'
+
+        return {
+            'APicture': APicture,
+            'AName': AName,
+            'ALabel': ALabel,
+            'AOpacity': 1.0 if choice == 'A' else 0.5,
+            'BPicture': BPicture,
+            'BName': BName,
+            'BLabel': BLabel,
+            'BOpacity': 1.0 if choice == 'B' else 0.5,
+            'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5,
+            'AMessage': message if choice == 'A' else '',
+            'BMessage': message if choice == 'B' else '',
+            'chosen': chosen,
+            'not_chosen': not_chosen,
+            'co2e_value': co2e_value
+        }
 
 class Norm_sustainable(Page):
     def is_displayed(player: Player):
@@ -209,28 +297,27 @@ class Norm_sustainable(Page):
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']
-            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"  # Anpassung hier
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"  
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
-            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"  # Anpassung hier
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"  
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
-
 
         return {
             'APicture': APicture,
             'AName': AName,
             'ALabel': ALabel,
             'AOpacity': 1.0 if choice == 'A' else 0.5,
-            'AMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'A' else '',
+            'AMessage': 'Mit deiner Wahl für die nachhaltige Option liegst du voll im Trend.' if choice == 'A' else '',
             'BPicture': BPicture,
             'BName': BName,
             'BLabel': BLabel,
             'BOpacity': 1.0 if choice == 'B' else 0.5,
-            'BMessage': 'Mit deiner Entscheidung liegst du voll im Trend!' if choice == 'B' else '',
+            'BMessage': 'Mit deiner Wahl für die nachhaltige Option liegst du voll im Trend' if choice == 'B' else '',
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
             'BLabelOpacity': 1.0 if choice == 'B' else 0.5
         }
-
+    
 class Norm_nonsustainable(Page):
     def is_displayed(player: Player):
         return player.participant.vars['treatment'] == 'norm' and player.participant.vars['chosen_option'] == 'non-sustainable'
@@ -246,6 +333,8 @@ class Norm_nonsustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
 
         else:
@@ -255,21 +344,39 @@ class Norm_nonsustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+
+        if label == 'labelC':
+            color = 'orange'
+        elif label == 'labelD':
+            color = 'darkorange'
+        elif label == 'labelE':
+            color = 'red'
+        elif label in ['labelA', 'labelB']:
+            color = 'red'  
+        else:
+            color = 'black'
+
+        message = f'<span style="color: {color}; font-size: xx-large; font-weight: bold;">{co2e_value} gCO2e</span>'
 
         return {
             'APicture': APicture,
             'AName': AName,
             'ALabel': ALabel,
             'AOpacity': 1.0 if choice == 'A' else 0.5,
-            'AMessage': 'Deine Wahl' if choice == 'A' else '',
             'BPicture': BPicture,
             'BName': BName,
             'BLabel': BLabel,
             'BOpacity': 1.0 if choice == 'B' else 0.5,
-            'BMessage': 'Deine Wahl' if choice == 'B' else '',
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
-            'BLabelOpacity': 1.0 if choice == 'B' else 0.5
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5,
+            'AMessage': message if choice == 'A' else '',
+            'BMessage': message if choice == 'B' else '',
+            'chosen': chosen,
+            'not_chosen': not_chosen,
+            'co2e_value': co2e_value
         }
 
 page_sequence = [Tracker, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]

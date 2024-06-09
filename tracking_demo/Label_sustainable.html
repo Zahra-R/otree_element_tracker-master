@@ -2,8 +2,35 @@
 {% load static %}
 
 {% block content %}
-    <img src="{% static 'global/images/greenlabel.webp' %}" alt="Non-Sustainable Image" style="width: 50%; height: auto; display: block; margin-bottom: 20px;">
-    <form method="post">
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+        <div style="flex: 1; text-align: center;">
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
+                <img src="{{ ALabel }}" alt="Sustainable Label" style="width: 25%; height: auto; opacity: {{ ALabelOpacity }}; margin-left: 10px;">
+            </div>
+            <p style="font-weight: bold; margin-top: 10px;">
+                {% if AMessage %}
+                    {{ AMessage }}
+                {% else %}
+                    &nbsp;&nbsp;
+                {% endif %}
+            </p>
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">
+                <img src="{{ BLabel }}" alt="Non-Sustainable Label" style="width: 25%; height: auto; opacity: {{ BLabelOpacity }}; margin-left: 10px;">
+            </div>
+            <p style="font-weight: bold; margin-top: 10px;">
+                {% if BMessage %}
+                    {{ BMessage }}
+                {% else %}
+                    &nbsp;&nbsp;
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <form method="post" style="text-align: center;">
         <button type="submit" class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}

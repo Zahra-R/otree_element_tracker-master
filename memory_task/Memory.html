@@ -20,23 +20,22 @@
                     <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
                 </div>
             </div>
+            {{ formfield_errors 'AChoice' }}
         </div>
-       
-        {{ formfield_errors 'AChoice' }}
     </div>
 
     <div class="col-6">
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
             <img style="display: block; width:auto; height:200px; max-width:200px; max-height:200px;" src="{{ BPicture }}">
-        </div>
-        <div style="text-align: left; margin-top: 10px;">
-            <h4 style="margin: 0;">{{ BDescription }}</h4>
-            <div style="margin-top: 5px; display: flex; align-items: center;">
-                <input type="number" name="BChoice" id="bchoice" class="form-control" style="width: 30%;" />
-                <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+            <div style="text-align: left; margin-top: 10px;">
+                <h4 style="margin: 0;">{{ BDescription }}</h4>
+                <div style="margin-top: 5px; display: flex; align-items: center;">
+                    <input type="number" name="BChoice" id="bchoice" class="form-control" style="width: 30%;" />
+                    <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+                </div>
             </div>
+            {{ formfield_errors 'BChoice' }}
         </div>
-        {{ formfield_errors 'BChoice' }}
     </div>
 </div>
 
@@ -49,3 +48,4 @@
 {% block scripts %}
 
 {% endblock %}
+
