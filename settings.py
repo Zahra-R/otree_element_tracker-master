@@ -3,7 +3,7 @@ from os import environ
 SESSION_CONFIGS = [
      dict(
          name='FirstSurvey',
-         app_sequence=['introduction', 'tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'],
+         app_sequence=['tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'],
          num_demo_participants=20,
      ),
      dict(
@@ -12,8 +12,18 @@ SESSION_CONFIGS = [
          num_demo_participants=20,
      ),
      dict(
-         name='MemoryOnly',
-         app_sequence=[ 'memory_task', 'NEPR_scale', 'demographics'],
+         name='memory',
+         app_sequence=[ 'memory_task'],
+         num_demo_participants=20,
+     ),
+     dict(
+         name='trackingdemo',
+         app_sequence=[ 'tracking_demo'],
+         num_demo_participants=20,
+     ),
+     dict(
+         name='demographics',
+         app_sequence=[ 'demographics'],
          num_demo_participants=20,
      ),
 ]

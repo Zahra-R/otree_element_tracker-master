@@ -5,15 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<p>Im folgenden Abschnitt werden über 15 Runden hinweg jeweils zwei Lebensmitteloptionen präsentiert.</p>
-<p>Jede Option ist mit zusätzlichen Informationen ausgestattet, die sich hinter gelben Feldern verbergen. Durch ein Anklicken werden die Informationen aufgedeckt.<p>
-<p>Bitte nehmen Sie sich Zeit, um sich mit dem Preis, dem Co2-Äquivalent und dem Proteingehalt vertraut zu machen und treffen Sie anhand dieser Angaben eine Entscheidung.</p>
+<p>Im folgenden Abschnitt werden Ihnen über 15 Runden hinweg jeweils zwei Lebensmitteloptionen präsentiert.</p>
+<p>Jede Option ist mit zusätzlichen Lebensmitteleigenschaften ausgestattet, die sich hinter gelben Feldern verbergen. Durch Anklicken werden die Informationen aufgedeckt.<p>
 
 <p><strong>Bitte konzentrieren Sie sich auf die Ihnen zur Verfügung gestellten Informationen und versuchen Sie, Lebensmittelpräferenzen nicht in den Entscheidungsprozess miteinfliessen zu lassen.</strong></p>
-    
-    {{ form }}
+
+<p style="text-align: center; font-weight: normal;">
+    <span style="color: purple; font-size: 24px; font-weight: bold;">&#x2192;</span> Mit Ihren Entscheidungen nehmen Sie direkten Einfluss auf die Belohnung am Ende. Treffen Sie Ihre Wahl also mit Bedacht!
+</p>
+
+<div style="text-align: center;">
+    <img src="{% static 'global/images/mysterybox.webp' %}" alt="Mystery Box" style="width: 200px; height: auto; margin-top: 0px; margin-bottom: 0px;">
+</div>
+
+{{ form }}
 
     
-    <button type="submit" class="btn btn-primary">Weiter</button>
+    <button type="submit" class="btn btn-primary">Los geht's</button>
 
 {% endblock %}

@@ -51,7 +51,7 @@
             </div>
             <div class="message-container">
                 {% if chosen == 'A' %}
-                    <p style="font-weight: bold;">Deine Wahl verursacht</p>
+                    <p style="font-weight: normal;">Deine Wahl verursacht</p>
                     <p class="co2-value">{{ AMessage | safe }}</p>
                 {% else %}
                     <p>&nbsp;</p>
@@ -66,7 +66,7 @@
             </div>
             <div class="message-container">
                 {% if chosen == 'B' %}
-                    <p style="font-weight: bold;">Deine Wahl verursacht</p>
+                    <p style="font-weight: normal;">Deine Wahl verursacht</p>
                     <p class="co2-value">{{ BMessage | safe }}</p>
                 {% else %}
                     <p>&nbsp;</p>

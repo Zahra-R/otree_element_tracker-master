@@ -285,7 +285,17 @@ class Norm_sustainable(Page):
         roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
         choice = player.choice
 
-        if player.sustainableLeft  == 0:
+        messages = [
+            "Immer mehr Menschen entscheiden sich für eine umweltbewusste Ernährung.",
+            "Umweltfreundliche Lebensmittel gewinnen zunehmend an Popularität.",
+            "Immer mehr Menschen erkennen die Bedeutung einer umweltbewussten Ernährung.",
+            "Der Umweltgedanke bei der Lebensmittelauswahl wächst stetig.",
+            "Viele passen ihre Ernährung an, um ihren ökologischen Fussabdruck zu verringern."
+        ]
+
+        selected_message = random.choice(messages)
+
+        if player.sustainableLeft == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
             AName = roundStimulus['NameA']
             ALabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
@@ -293,14 +303,13 @@ class Norm_sustainable(Page):
             BName = roundStimulus['NameB']
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
-
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']
-            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"  
+            ALabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
-            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"  
+            BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
 
         return {
@@ -308,12 +317,12 @@ class Norm_sustainable(Page):
             'AName': AName,
             'ALabel': ALabel,
             'AOpacity': 1.0 if choice == 'A' else 0.5,
-            'AMessage': 'Mit deiner Wahl für die nachhaltige Option liegst du voll im Trend.' if choice == 'A' else '',
+            'AMessage': selected_message if choice == 'A' else '',
             'BPicture': BPicture,
             'BName': BName,
             'BLabel': BLabel,
             'BOpacity': 1.0 if choice == 'B' else 0.5,
-            'BMessage': 'Mit deiner Wahl für die nachhaltige Option liegst du voll im Trend' if choice == 'B' else '',
+            'BMessage': selected_message if choice == 'B' else '',
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
             'BLabelOpacity': 1.0 if choice == 'B' else 0.5
         }
