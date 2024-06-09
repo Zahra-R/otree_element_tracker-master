@@ -205,6 +205,7 @@ class Norm_sustainable(Page):
             BName = roundStimulus['NameB']
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
+
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
             AName = roundStimulus['NameB']

@@ -11,6 +11,11 @@ SESSION_CONFIGS = [
          app_sequence=['introduction', 'tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'],
          num_demo_participants=20,
      ),
+     dict(
+         name='MemoryOnly',
+         app_sequence=[ 'memory_task', 'NEPR_scale', 'demographics'],
+         num_demo_participants=20,
+     ),
 ]
 
 # 'introduction', 'tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'
