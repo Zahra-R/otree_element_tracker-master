@@ -40,9 +40,9 @@
   "PriceB": 7,
   "CO2B": 280,
   "ProteinB": 0,
-  "NameA": "Schokoladeneis",
+  "NameA": "Schokoladen&shy;eis",
   "LabelA": "labelC",
-  "NameB": "Früchtesorbet",
+  "NameB": "Früchte&shy;sorbet",
   "LabelB": "labelB"
  },
  {
@@ -55,7 +55,7 @@
   "PriceB": 0.4,
   "CO2B": 125,
   "ProteinB": 11,
-  "NameA": "Vollmilchschokolade",
+  "NameA": "Voll&shy;milch&shy;schokolade",
   "LabelA": "labelE",
   "NameB": "Erdnussbutter-Marmeladen Sandwich",
   "LabelB": "labelA"

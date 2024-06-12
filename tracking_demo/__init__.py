@@ -4,7 +4,7 @@ import random
 import itertools
 
 class C(BaseConstants):
-    NAME_IN_URL = 'tracking_demo'
+    NAME_IN_URL = 'choice_task'
     PLAYERS_PER_GROUP = None
     stimulipath = "tracking_demo/stimuli.json"
     with open(stimulipath, 'r') as j:
@@ -79,7 +79,7 @@ def custom_export(players):
                 e.attributeValue
             ]
 
-class Tracker(Page):
+class choice(Page):
     form_model = 'player'
     form_fields = ['choice']
 
@@ -388,4 +388,4 @@ class Norm_nonsustainable(Page):
             'co2e_value': co2e_value
         }
 
-page_sequence = [Tracker, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]
+page_sequence = [choice, Label_sustainable, Label_nonsustainable, Norm_sustainable, Norm_nonsustainable]

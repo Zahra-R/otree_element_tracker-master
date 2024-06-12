@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Entscheidung zwischen zwei Optionen
+    Bitte treffen Sie eine Auswahl
 {% endblock %}
 
 {% block styles %}
@@ -12,8 +12,9 @@
 {% endblock %}
 
 {% block content %}
+<p style="font-size: smaller;"> Dies ist Runde Nummer {{round_number}} von 15. </p>
+<p> Welches Gericht/Lebensmittel möchten Sie auswählen?  </p>
 
-<p> Dies ist Runde Nummer {{round_number}} von 15. </p>
 
 
 <div class = "row">
@@ -21,17 +22,17 @@
 
 
 <div class="col-6" id="page_0_10_flipcards">
-    <div style="margin-left:auto; margin-right:auto; text-align: center;">
-        <img style="width:auto; height:200px; max-width:200px; max-height:200px; margin-right: 2vw;" src="{{ APicture }}">
+    <div >
+        <img style="width:auto; height:200px; max-width:200px; max-height:200px; margin-right: 2vw; margin-left:20px;" src="{{ APicture }}">
     
     </div>
    
-    <h3 style="text-align:center; font-size:18px; margin-top:20px;">{{ AName }}</h3>
+    <h3 style="font-size:18px; margin-top:20px; margin-left:20px;">{{ AName }}</h3>
     <div class="flip-card tracked_element" id="att_A1">
         <!-- <div class=" "> -->
         <div class=" flip-card-inner" id="att_A1_inner">
             <div  id="att_A1_frontwrapper" class=" flip-card-front valign-wrapper jok">
-                <span id="att_A1_frontspan">Price</span>
+                <span id="att_A1_frontspan">Preis</span>
             </div>
 
             <div  id="att_A1_backwrapper" class=" flip-card-back valign-wrapper jok">
@@ -76,16 +77,16 @@
 </div>
 
 <div class="col-6" id="page_0_10_flipcards">
-    <div style="margin-left:auto; margin-right:auto; text-align:center;">
-        <img style="width:auto; height:200px; max-width:200px; max-height:200px; margin-right: 2vw;" src="{{ BPicture }}">
+    <div >
+        <img style="width:auto; height:200px; max-width:200px; max-height:200px; margin-right: 2vw;  margin-left:20px;" src="{{ BPicture }}">
     </div>
-    <h3 style="text-align:center; font-size:18px; margin-top:20px;">{{ BName }}</h3>
+    <h3 style=" margin-left:20px; font-size:18px; margin-top:20px;">{{ BName }}</h3>
 
     <div class="flip-card tracked_element" id="att_B1">
         <!-- <div class=" "> -->
         <div class=" flip-card-inner" id="att_B1_inner">
             <div id="att_B1_frontwrapper" class=" flip-card-front valign-wrapper jok">
-                <span id="att_B1_frontspan">Price</span>
+                <span id="att_B1_frontspan">Preis</span>
             </div>
 
             <div id="att_B1_backwrapper" class=" flip-card-back valign-wrapper jok">
@@ -185,8 +186,6 @@
 
                     // send the event and free up the element in the dictionary.
                     liveSend(hover_events[mylastid]);
-                    console.log("hallo printe gehen")
-                    console.log(hover_events[mylastid])
                 }
 
                 // now open new element
@@ -231,7 +230,6 @@
 
             function triggernext() {
                 $('#id_triggernext').trigger('click')
-                console.log("i am triggered");
                 
             }
 

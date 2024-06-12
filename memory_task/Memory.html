@@ -2,11 +2,11 @@
 {% load otree static %}
 
 {% block title %}
-    Memory Task
+    Kennen Sie den Klima-Fussabdruck der folgenden Nahrungsmittel?
 {% endblock %}
 
 {% block content %}
-<p> Schätzen Sie den CO2e-Wert basierend auf Ihrem Wissen und Erfahrungen. </p>
+<p> Schätzen Sie den CO2e-Wert für die beiden unten abgebildeten Lebensmittel basierend auf Ihrem Wissen und Erfahrungen. Bitte versuchen Sie, so genau wie möglich zu sein.</p>
 <p> Dies ist Runde Nummer {{ round_number }} von {{ Constants.num_rounds }}. </p>
 
 <div class="row">
@@ -37,6 +37,12 @@
             {{ formfield_errors 'BChoice' }}
         </div>
     </div>
+</div>
+
+<div>
+    <p> 
+        <span style="font-size: x-large;"> &#9432; </span>  Mit CO2e sind Kohlenstoffdioxid-Äquivalente gemeint. D.h. der gesamte Treibhausgasausstoss eines Lebensmittels (durch Anbau, Aufzucht, Produktion, Transport, etc.) wird zusammengerechnet und umgerechnet in CO2-Einheiten. 
+    </p>
 </div>
 
 <div style="text-align: left; margin-top: 20px;">
