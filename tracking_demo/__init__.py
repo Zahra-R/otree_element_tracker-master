@@ -302,6 +302,8 @@ class Norm_sustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureB']
             BName = roundStimulus['NameB']
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
@@ -310,7 +312,20 @@ class Norm_sustainable(Page):
             BPicture = "/static/global/images/" + roundStimulus['PictureA']
             BName = roundStimulus['NameA']
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
+            co2e_value = roundStimulus['CO2A'] if choice == 'A' else roundStimulus['CO2A']
+            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
+
+        if label == 'labelA':
+            color = 'green'
+        elif label == 'labelB':
+            color = 'green'
+        elif label in ['labelC', 'labelD', 'labelE']:
+            color = 'red'  
+        else:
+            color = 'black'
+
+        messages = f'<span style="color: {color}; font-size: xx-large; font-weight: bold;">{co2e_value} gCO2e</span>'
 
         return {
             'APicture': APicture,
@@ -324,7 +339,10 @@ class Norm_sustainable(Page):
             'BOpacity': 1.0 if choice == 'B' else 0.5,
             'BMessage': selected_message if choice == 'B' else '',
             'ALabelOpacity': 1.0 if choice == 'A' else 0.5,
-            'BLabelOpacity': 1.0 if choice == 'B' else 0.5
+            'BLabelOpacity': 1.0 if choice == 'B' else 0.5,
+            'chosen': chosen,
+            'not_chosen': not_chosen,
+            'co2e_value': co2e_value
         }
     
 class Norm_nonsustainable(Page):

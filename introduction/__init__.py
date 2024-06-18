@@ -2,7 +2,7 @@ from otree.api import *
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'complex_form_layout'
+    NAME_IN_URL = 'Introduction'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -36,7 +36,7 @@ class Consent(Page):
 
     def error_message(self, values):
         if values['consent'] != 1:
-            return "Sie müssen zustimmen, um fortzufahren."
+            return "Bitte stimmen Sie zu, um fortzufahren."
         
 class Instructions(Page):
     form_model = 'player'
