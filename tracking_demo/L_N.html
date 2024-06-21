@@ -1,67 +1,64 @@
 {% extends "global/Page.html" %}
 {% load static %}
-{% block styles %}
-<link href="{{ static 'global/css/feedback.css'}}" rel="stylesheet">
-<style>
-    .message-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .message-container p {
-        margin: 0;
-        text-align: center;
-        line-height: 1.1;
-        font-weight: normal; 
-    }
-    .co2-value {
-        font-size: xx-large;
-        font-weight: bold;
-        margin-top: 5px;
-    }
-    .image-and-label-container {
-        display: flex;
-        flex-direction: row; 
-        align-items: flex-end; 
-        justify-content: center;
-        margin-bottom: 20px; 
-    }
-    .image-and-label-container img {
-        margin: 0 5px;
-    }
-    .label-container {
-        width: 35%;
-        height: auto;
-        margin-left: 10px;
-    }
-    .image-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 40px; 
-    }
-    .food-name {
-        font-size: large;
-        font-weight: bold; 
-        margin-bottom: 10px; 
-    }
-    .selected {
-        border: 1.5px solid black; 
-        padding: 10px;
-        border-radius: 20px; 
-    }
-    form {
-        margin-top: 30px; 
-        text-align: left; 
-    }
-</style>
-{% endblock %}
+
 {% block content %}
-  
+    <style>
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .message-container p {
+            margin: 0;
+            text-align: center;
+            line-height: 1.1;
+            font-weight: normal; 
+        }
+        .co2-value {
+            font-size: xx-large;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .image-and-label-container {
+            display: flex;
+            flex-direction: row; 
+            align-items: flex-end; 
+            justify-content: center;
+            margin-bottom: 20px; 
+        }
+        .image-and-label-container img {
+            margin: 0 5px;
+        }
+        .label-container {
+            width: 35%;
+            height: auto;
+            margin-left: 10px;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px; 
+        }
+        .food-name {
+            font-size: large;
+            font-weight: bold; 
+            margin-bottom: 10px; 
+        }
+        .selected {
+            border: 1.5px solid black; 
+            padding: 10px;
+            border-radius: 20px; 
+        }
+        form {
+            margin-top: 30px; 
+            text-align: left; 
+        }
+    </style>
 
 {% block title %}
    Ihre Auswahl in der letzten Runde
@@ -72,8 +69,8 @@
             <div class="{% if chosen == 'A' %}selected{% endif %}">
                 <p class="food-name">{{ AName }}</p> <!-- Bezeichnung oberhalb des Bildes -->
                 <div class="image-and-label-container">
-                    <img class="feedbackImg" src="{{ APicture }}" alt="{{ AName }}" style="opacity: {{ AOpacity }};">
-                    <img class="feedbackLabel" src="{{ ALabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ ALabelOpacity }};">
+                    <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
+                    <img src="{{ ALabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ ALabelOpacity }};">
                 </div>
                 <div class="message-container">
                     <p>Dieses Lebensmittel verursacht</p>
@@ -85,8 +82,8 @@
             <div class="{% if chosen == 'B' %}selected{% endif %}">
                 <p class="food-name">{{ BName }}</p> <!-- Bezeichnung oberhalb des Bildes -->
                 <div class="image-and-label-container">
-                    <img class="feedbackImg"  src="{{ BPicture }}" alt="{{ BName }}" style="opacity: {{ BOpacity }};">
-                    <img class="feedbackLabel"  src="{{ BLabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ BLabelOpacity }};">
+                    <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">
+                    <img src="{{ BLabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ BLabelOpacity }};">
                 </div>
                 <div class="message-container">
                     <p>Dieses Lebensmittel verursacht</p>
