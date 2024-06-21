@@ -9,7 +9,7 @@
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .message-container p {
             margin: 0;
@@ -75,6 +75,10 @@
                 <div class="message-container">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ AMessage | safe }}</p>
+                    {% if chosen == 'A' and sustainable_side in ['left', 'right'] %}
+                    <div style="height: 20px;"></div>
+                    <p class="additional-text">{{ AdditionalText | safe }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -88,6 +92,10 @@
                 <div class="message-container">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ BMessage | safe }}</p>
+                    {% if chosen == 'B' and sustainable_side in ['left', 'right'] %}
+                    <div style="height: 20px;"></div>
+                    <p class="additional-text">{{ AdditionalText | safe }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -96,17 +104,3 @@
         <button type="submit" style="display:block; margin-top: 30px;" class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
