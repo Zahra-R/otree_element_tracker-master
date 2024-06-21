@@ -1,0 +1,99 @@
+{% extends "global/Page.html" %}
+{% load static %}
+{% block styles %}
+<link href="{{ static 'global/css/feedback.css'}}" rel="stylesheet">
+<style>
+    .message-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;       
+    }
+    .message-container p {
+        margin: 0;
+        text-align: center;
+        line-height: 1.1;
+    }
+    .co2-value {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    .image-and-label-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-and-label-container img {
+        margin: 0 5px;
+    }
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px; 
+    }
+    form {
+        margin-top: 30px; 
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% block title %}
+   Ihre Auswahl in der letzten Runde
+{% endblock %}
+
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="text-align: center; width: 50%;">
+            <div class="image-and-label-container">
+                <img class="feedbackImg" src="{{ APicture }}" alt="{{ AName }}" style="opacity: {{ AOpacity }};">
+                <p>
+                    <span style="font-size: large; font-weight: bold;  opacity: {{ AOpacity }};"> {{AName}}</span> </p>
+                <img class="feedbackLabel"  src="{{ ALabel }}" alt="Non-Sustainable Label" style="opacity: {{ ALabelOpacity }};">
+                <div class="message-container">
+                    {% if chosen == 'A' %}
+                        <p style="font-weight: normal;">Dieses Lebensmittel verursacht</p>
+                        <p class="co2-value">{{ AMessage | safe }}</p>
+                    {% else %}
+                        <p>&nbsp;</p>
+                        <p class="co2-value">&nbsp;</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+        <div style="text-align: center;  width: 50%;">
+            <div class="image-and-label-container">
+                <img class="feedbackImg"  src="{{ BPicture }}" alt="{{ BName }}" style="opacity: {{ BOpacity }};">
+                                <p>
+                    <span style="font-size: large; font-weight: bold;  opacity: {{ BOpacity }};"> {{BName}}</span> </p>  
+                <img class="feedbackLabel"  src="{{ BLabel }}" alt="Non-Sustainable Label" style="opacity: {{ BLabelOpacity}};">
+            </div>
+            <div class="message-container">
+                {% if chosen == 'B' %}
+                    <p style="font-weight: normal;">Dieses Lebensmittel verursacht</p>
+                    <p class="co2-value">{{ BMessage | safe }}</p>
+                {% else %}
+                    <p>&nbsp;</p>
+                    <p class="co2-value">&nbsp;</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <form method="post" style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Weiter</button>
+    </form>
+{% endblock %}
+
+
+
+
+
+
