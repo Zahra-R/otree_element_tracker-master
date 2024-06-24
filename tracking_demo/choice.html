@@ -71,7 +71,7 @@
         <!-- </div> -->
     </div>
 
-    <div style="text-align: left; margin-left:2vw ;"><button type="button" name="leftchoice" id="abtn" value="A"
+    <div style="text-align: left; margin-left:2vw ;"><button type="button" disabled name="leftchoice" id="abtn" value="A"
         class="choicebtn btn btn-primary btn-large" > Wähle Option A</button></div>
 
 </div>
@@ -124,7 +124,7 @@
         </div>
         <!-- </div> -->
     </div>
-    <div style="text-align: left; margin-left:2vw ;"><button type="button" name="rightchoice" id="bbtn" value="B"
+    <div style="text-align: left; margin-left:2vw ;"><button type="button" disabled name="rightchoice" id="bbtn" value="B"
         class="choicebtn btn btn-primary btn-large" > Wähle Option B</button></div>
     
     </div>
@@ -144,6 +144,15 @@
     <script type="text/javascript">
         let hover_events = {};
         let last_event_id = ""; 
+        stimulusID = "{{ StimulusID }}";
+        priceA = "{{ APrice }}";
+        priceB = "{{ BPrice }}";
+        co2A = "{{ ACO2 }}";
+        co2B = "{{ BCO2 }}";
+        proteinA = "{{ AProtein }}";
+        proteinB = "{{ BProtein }}";
+        nameA = "{{ AName }}";
+        nameB = "{{ BName }}";
 
         // $(".tracked_element").mouseenter(function(e) {
         //     // entering starts a new hover event
@@ -169,6 +178,28 @@
         //     }
         //     $("p").on("click", { foo: "bar" }, myHandler);
 
+        function fill_db(mylastid, leave_time) {
+                hover_events[mylastid]["leave_time"] = leave_time;
+                hover_events[mylastid]["duration"] = leave_time - hover_events[mylastid]["enter_time"];
+                hover_events[mylastid]["attributeType"] = $('#' + mylastid + '_frontspan').text();
+                hover_events[mylastid]["stimulusID"] = stimulusID;
+                hover_events[mylastid]["attributeValue"] = parseFloat( $('#' + mylastid + '_backspan').text());
+                
+                if (mylastid.includes("_A")) {
+                    hover_events[mylastid]["foodName"] = nameA;
+                } 
+                else {
+                    hover_events[mylastid]["foodName"] = nameB;
+                }
+                console.log("in fill db")
+                console.log(hover_events)
+                return(hover_events)
+                    
+                
+                    
+
+            }
+        
 
        
 
@@ -179,13 +210,11 @@
                 mylastid = last_event_id
                 $('.flip-card').removeClass('active')
                 if (mylastid != "") {
-                    hover_events[mylastid]["leave_time"] = leave_time;
-                    hover_events[mylastid]["duration"] = leave_time - hover_events[mylastid]["enter_time"];
-                    hover_events[mylastid]["attributeType"] = $('#' + mylastid + '_frontspan').text();
-                    hover_events[mylastid]["attributeValue"] = $('#' + mylastid + '_backspan').text();
+                   
 
                     // send the event and free up the element in the dictionary.
-                    liveSend(hover_events[mylastid]);
+                    liveSend(fill_db(mylastid, leave_time)[mylastid]);
+                    console.log("maed it till livsend")
                 }
 
                 // now open new element
@@ -214,13 +243,10 @@
                 mylastid = last_event_id
                 $('.flip-card').removeClass('active')
                 if (mylastid != "") {
-                    hover_events[mylastid]["leave_time"] = leave_time;
-                    hover_events[mylastid]["duration"] = leave_time - hover_events[mylastid]["enter_time"];
-                    hover_events[mylastid]["attributeType"] = $('#' + mylastid + '_frontspan').text();
-                    hover_events[mylastid]["attributeValue"] = $('#' + mylastid + '_backspan').text();
+                    //fill_db(mylastid)
 
                     // send the event and free up the element in the dictionary.
-                    liveSend(hover_events[mylastid]);
+                    liveSend(fill_db(mylastid, leave_time)[mylastid]);
                 } 
                 forminputs.choice.value = event.target.value
                 setTimeout(triggernext(), 500)
@@ -231,6 +257,17 @@
             function triggernext() {
                 $('#id_triggernext').trigger('click')
                 
+            }
+
+            window.onload = function () {
+
+                    setTimeout(function () { enablebtn() }, 5000);
+                }
+
+            enablebtn = function () {
+                document.getElementById("bbtn").disabled = false;
+                document.getElementById("abtn").disabled = false;
+
             }
 
 

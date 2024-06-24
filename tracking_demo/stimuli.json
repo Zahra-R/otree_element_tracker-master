@@ -13,7 +13,9 @@
   "NameA": "Eier mit Speck",
   "LabelA": "labelE",
   "NameB": "Hummus mit Brot",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 2,
@@ -28,7 +30,9 @@
   "NameA": "Cerealien mit Kuhmilch",
   "LabelA": "labelB",
   "NameB": "Haferflocken mit pflanzlicher Milch",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 3,
@@ -43,7 +47,9 @@
   "NameA": "Schokoladen&shy;eis",
   "LabelA": "labelC",
   "NameB": "Früchte&shy;sorbet",
-  "LabelB": "labelB"
+  "LabelB": "labelB",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 4,
@@ -58,7 +64,9 @@
   "NameA": "Voll&shy;milch&shy;schokolade",
   "LabelA": "labelE",
   "NameB": "Erdnussbutter-Marmeladen Sandwich",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 5,
@@ -73,7 +81,9 @@
   "NameA": "Mango",
   "LabelA": "labelD",
   "NameB": "Apfel",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 6,
@@ -88,7 +98,9 @@
   "NameA": "Yoghurt Müsliriegel",
   "LabelA": "labelC",
   "NameB": "Cracker",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 7,
@@ -103,7 +115,9 @@
   "NameA": "Mac and Cheese",
   "LabelA": "labelE",
   "NameB": "Kichererbsen Curry",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 8,
@@ -118,7 +132,9 @@
   "NameA": "Hamburger",
   "LabelA": "labelE",
   "NameB": "Falafel Sandwich",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 9,
@@ -148,7 +164,9 @@
   "NameA": "Steak",
   "LabelA": "labelE",
   "NameB": "Vegetarisches Moussaka",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 11,
@@ -163,7 +181,9 @@
   "NameA": "Spaghetti Meatballs",
   "LabelA": "labelE",
   "NameB": "Spaghetti Marinara",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 12,
@@ -178,7 +198,9 @@
   "NameA": "Lasagne mit Hackfleisch",
   "LabelA": "labelE",
   "NameB": "Pasta Primavera",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 13,
@@ -193,7 +215,9 @@
   "NameA": "Roastbeef Sandwich",
   "LabelA": "labelE",
   "NameB": "Veganer Burrito",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 14,
@@ -208,7 +232,9 @@
   "NameA": "Beef Jerky",
   "LabelA": "labelE",
   "NameB": "Trailmix",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 15,
@@ -223,6 +249,8 @@
   "NameA": "Lammkotelett",
   "LabelA": "labelE",
   "NameB": "Halloumi",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  }
 ]

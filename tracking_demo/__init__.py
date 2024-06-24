@@ -32,6 +32,8 @@ class Player(BasePlayer):
             duration=payload["duration"],
             attributeType=payload["attributeType"],
             attributeValue=payload["attributeValue"],
+            stimulusID=payload["stimulusID"],
+            foodName=payload["foodName"],
         )
 
 class HoverEvent(models.ExtraModel):
@@ -41,7 +43,9 @@ class HoverEvent(models.ExtraModel):
     leave_time = models.FloatField()
     duration = models.IntegerField()
     attributeType = models.StringField()
-    attributeValue = models.StringField()
+    attributeValue = models.FloatField()
+    stimulusID = models.StringField()
+    foodName = models.StringField()
 
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
@@ -62,7 +66,9 @@ def custom_export(players):
         "leave_time",
         "duration",
         "attributeType",
-        "attributeValue"
+        "attributeValue",
+        "stimulusID", 
+        "foodName"
     ]
     for player in players:
         for e in HoverEvent.filter(player=player):
@@ -76,7 +82,9 @@ def custom_export(players):
                 e.leave_time,
                 e.duration,
                 e.attributeType,
-                e.attributeValue
+                e.attributeValue, 
+                e.stimulusID,
+                e.foodName
             ]
 
 class choice(Page):
@@ -114,6 +122,8 @@ class choice(Page):
                 'sustainable_price': roundStimulus['PriceA'],
                 'sustainable_co2': roundStimulus['CO2A'],
                 'sustainable_protein': roundStimulus['ProteinA'],
+                'StimulusID': roundStimulus['StimulusID']
+                
             }
         else:
             base_data = {
@@ -134,9 +144,8 @@ class choice(Page):
                 'sustainable_price': roundStimulus['PriceB'],
                 'sustainable_co2': roundStimulus['CO2B'],
                 'sustainable_protein': roundStimulus['ProteinB'],
+                'StimulusID': roundStimulus['StimulusID']
             }
-
-        
 
         if player.treatment == 'label':
             base_data.update({
@@ -160,6 +169,7 @@ class choice(Page):
             base_data['template'] = 'global/blank_page.html'
 
         return base_data
+    
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
@@ -259,7 +269,7 @@ class L_N(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             co2e_chosen = roundStimulus['CO2A']
             co2e_not_chosen = roundStimulus['CO2B']
-            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
+            #label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
 
         else:
@@ -271,21 +281,17 @@ class L_N(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             co2e_chosen = roundStimulus['CO2A']
             co2e_not_chosen = roundStimulus['CO2B']
-            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
+            #label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
 
-        if label == 'labelC':
-            chosen_color = 'orange'
-        elif label == 'labelD':
-            chosen_color = 'darkorange'
-        elif label == 'labelE':
-            chosen_color = 'red'
-        elif label in ['labelA', 'labelB']:
-            chosen_color = 'red'  
-        else:
-            chosen_color = 'black'
+ ## here it the new correct code that should be adapted for all pages 
 
-        not_chosen_color = 'black'
+        if player.choice_sustainable == 'sustainable':
+            chosen_color = roundStimulus['ColorB']
+            not_chosen_color = roundStimulus['ColorA']
+        else: 
+            chosen_color = roundStimulus['ColorA']
+            not_chosen_color = roundStimulus['ColorB']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
         message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
@@ -306,7 +312,7 @@ class L_N(Page):
             'chosen': chosen,
             'not_chosen': not_chosen,
             'co2e_value_chosen': co2e_chosen,
-            'co2e_value_not_chosen': co2e_not_chosen        
+            'co2e_value_not_chosen': co2e_not_chosen     
         }
 
 import random
@@ -389,7 +395,7 @@ class N_S(Page):
             'co2e_value_chosen': co2e_chosen,
             'co2e_value_not_chosen': co2e_not_chosen,
             'AdditionalText': AdditionalText,
-            'sustainable_side': sustainable_side,
+            'sustainable_side': sustainable_side
         }
 
 class N_N(Page):

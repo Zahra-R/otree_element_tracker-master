@@ -101,7 +101,21 @@
         </div>
     </div>
     <form method="post">
-        <button type="submit" style="display:block; margin-top: 30px;" class="btn btn-primary">Weiter</button>
+        <button type="submit" style="display:block; margin-top: 30px;" id="next-button" disabled class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}
 
+{% block scripts %}
+<script>
+
+enablebtn = function () {
+                document.getElementById("next-button").disabled = false;
+            }
+
+
+window.onload = function () {
+    setTimeout(function () { enablebtn() }, 1500);
+}
+
+</script>
+{% endblock %}
