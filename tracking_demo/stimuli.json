@@ -31,7 +31,7 @@
   "LabelA": "labelB",
   "NameB": "Haferflocken mit pflanzlicher Milch",
   "LabelB": "labelA",
-  "ColorA": "red",
+  "ColorA": "green",
   "ColorB": "green"
  },
  {
@@ -44,11 +44,11 @@
   "PriceB": 7,
   "CO2B": 280,
   "ProteinB": 0,
-  "NameA": "Schokoladen&shy;eis",
+  "NameA": "Schokoladeneis",
   "LabelA": "labelC",
-  "NameB": "Früchte&shy;sorbet",
+  "NameB": "Früchtesorbet",
   "LabelB": "labelB",
-  "ColorA": "red",
+  "ColorA": "orange",
   "ColorB": "green"
  },
  {
@@ -61,7 +61,7 @@
   "PriceB": 0.4,
   "CO2B": 125,
   "ProteinB": 11,
-  "NameA": "Vollmshy;milch&shy;schokolade",
+  "NameA": "Vollmilchschokolade",
   "LabelA": "labelE",
   "NameB": "Erdnussbutter-Marmeladen Sandwich",
   "LabelB": "labelA",
@@ -82,7 +82,7 @@
   "LabelA": "labelD",
   "NameB": "Apfel",
   "LabelB": "labelA",
-  "ColorA": "red",
+  "ColorA": "orange",
   "ColorB": "green"
  },
  {

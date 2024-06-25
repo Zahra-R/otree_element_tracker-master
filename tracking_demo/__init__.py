@@ -49,7 +49,7 @@ class HoverEvent(models.ExtraModel):
 
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
-        treatments = itertools.cycle(["label", "norm", "control"])
+        treatments = itertools.cycle(["norm", "label", "control"])
         for player in subsession.get_players():
             player.treatment = next(treatments)
             player.participant.vars['treatment'] = player.treatment
@@ -354,7 +354,7 @@ class N_S(Page):
             not_chosen_color = roundStimulus['ColorA']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e</span>'
 
         additional_texts = [
             "Immer mehr Menschen entscheiden sich für eine umweltbewusste Ernährung.",
@@ -397,6 +397,7 @@ class N_N(Page):
     def vars_for_template(player: Player):
         roundStimulus = C.stimulitable[player.participant.orderStimuli[player.round_number-1]]
         choice = player.choice
+        sustainable_side = player.participant.vars.get('sustainable_side', 'left')
 
         if player.sustainableLeft == 0:
             APicture = "/static/global/images/" + roundStimulus['PictureA']
@@ -429,7 +430,17 @@ class N_N(Page):
             not_chosen_color = roundStimulus['ColorB']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e</span>'
+
+        additional_texts = [
+            "Immer mehr Menschen entscheiden sich für eine umweltbewusste Ernährung.",
+            "Umweltfreundliche Lebensmittel gewinnen zunehmend an Popularität.",
+            "Immer mehr Menschen erkennen die Bedeutung einer umweltbewussten Ernährung.",
+            "Der Umweltgedanke bei der Lebensmittelauswahl wächst stetig.",
+            "Viele passen ihre Ernährung an, um ihren ökologischen Fussabdruck zu verringern."
+        ]
+
+        AdditionalText = random.choice(additional_texts)
 
         return {
             'APicture': APicture,
@@ -447,7 +458,11 @@ class N_N(Page):
             'chosen': chosen,
             'not_chosen': not_chosen,
             'co2e_value_chosen': co2e_chosen,
-            'co2e_value_not_chosen': co2e_not_chosen        
+            'co2e_value_not_chosen': co2e_not_chosen,
+            'AdditionalText': AdditionalText,
+            'sustainable_side': sustainable_side,  
+            'AdditionalTextOpacity': 1.0 if player.choice_sustainable else 0.7
+     
         }
 
 page_sequence = [choice, L_S, L_N, N_S, N_N]

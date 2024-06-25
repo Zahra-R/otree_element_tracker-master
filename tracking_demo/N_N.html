@@ -58,6 +58,7 @@
             margin-top: 30px; 
             text-align: left; 
         }
+
     </style>
 
 {% block title %}
@@ -72,9 +73,13 @@
                     <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
                     <img src="{{ ALabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ ALabelOpacity }};">
                 </div>
-                <div class="message-container">
+                <div class="message-container" style="opacity: {% if chosen == 'B' %}0.7{% else %}1{% endif %};">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ AMessage | safe }}</p>
+                    {% if chosen == 'B' and sustainable_side in ['left', 'right'] %}
+                    <div style="height: 20px;"></div>
+                    <p class="additional-text">{{ AdditionalText | safe }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -85,9 +90,13 @@
                     <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">
                     <img src="{{ BLabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ BLabelOpacity }};">
                 </div>
-                <div class="message-container">
+                <div class="message-container" style="opacity: {% if chosen == 'A' %}0.7{% else %}1{% endif %};">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ BMessage | safe }}</p>
+                    {% if chosen == 'A' and sustainable_side in ['left', 'right'] %}
+                    <div style="height: 20px;"></div>
+                    <p class="additional-text">{{ AdditionalText | safe }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -96,20 +105,6 @@
         <button type="submit" style="display:block; margin-top: 30px;" id="next-button" disabled class="btn btn-primary">Weiter</button>
     </form>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {% block scripts %}
 <script>

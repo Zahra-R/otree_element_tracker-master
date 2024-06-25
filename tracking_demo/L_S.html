@@ -72,7 +72,7 @@
                     <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
                     <img src="{{ ALabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ ALabelOpacity }};">
                 </div>
-                <div class="message-container">
+                <div class="message-container" style="opacity: {% if chosen == 'B' %}0.7{% else %}1{% endif %};">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ AMessage | safe }}</p>
                 </div>
@@ -85,7 +85,7 @@
                     <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">
                     <img src="{{ BLabel }}" alt="Non-Sustainable Label" class="label-container" style="opacity: {{ BLabelOpacity }};">
                 </div>
-                <div class="message-container">
+                <div class="message-container" style="opacity: {% if chosen == 'A' %}0.7{% else %}1{% endif %};">
                     <p>Dieses Lebensmittel verursacht</p>
                     <p class="co2-value">{{ BMessage | safe }}</p>
                 </div>
