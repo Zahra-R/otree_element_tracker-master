@@ -204,7 +204,7 @@ class L_S(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             co2e_chosen = roundStimulus['CO2B'] 
             co2e_not_chosen = roundStimulus['CO2A'] 
-            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
+            #label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
 
         else:
@@ -216,19 +216,15 @@ class L_S(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             co2e_chosen = roundStimulus['CO2B'] 
             co2e_not_chosen = roundStimulus['CO2A'] 
-            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
+            #label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
 
-        if label == 'labelA':
-            chosen_color = 'green'
-        elif label == 'labelB':
-            chosen_color = 'green'
-        elif label in ['labelC', 'labelD', 'labelE']:
-            chosen_color = 'green'  
-        else:
-            chosen_color = 'black'
-
-        not_chosen_color = 'black'
+        if player.choice_sustainable == 'sustainable':
+            chosen_color = roundStimulus['ColorA']
+            not_chosen_color = roundStimulus['ColorB']
+        else: 
+            chosen_color = roundStimulus['ColorB']
+            not_chosen_color = roundStimulus['ColorA']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
         message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
@@ -335,7 +331,7 @@ class N_S(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             co2e_chosen = roundStimulus['CO2B'] 
             co2e_not_chosen = roundStimulus['CO2A'] 
-            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
+            #label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
 
         else:
@@ -347,19 +343,15 @@ class N_S(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             co2e_chosen = roundStimulus['CO2B'] 
             co2e_not_chosen = roundStimulus['CO2A'] 
-            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
+            #label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
 
-        if label == 'labelA':
-            chosen_color = 'green'
-        elif label == 'labelB':
-            chosen_color = 'green'
-        elif label in ['labelC', 'labelD', 'labelE']:
-            chosen_color = 'green'
-        else:
-            chosen_color = 'black'
-
-        not_chosen_color = 'black'
+        if player.choice_sustainable == 'sustainable':
+            chosen_color = roundStimulus['ColorA']
+            not_chosen_color = roundStimulus['ColorB']
+        else: 
+            chosen_color = roundStimulus['ColorB']
+            not_chosen_color = roundStimulus['ColorA']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
         message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
@@ -415,7 +407,7 @@ class N_N(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelB'] + ".webp"
             co2e_chosen = roundStimulus['CO2A'] 
             co2e_not_chosen = roundStimulus['CO2B'] 
-            label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
+            #label = roundStimulus['LabelA'] if choice == 'A' else roundStimulus['LabelB']
             chosen, not_chosen = ('A', 'B') if choice == 'A' else ('B', 'A')
         else:
             APicture = "/static/global/images/" + roundStimulus['PictureB']
@@ -426,21 +418,15 @@ class N_N(Page):
             BLabel = "/static/global/images/" + roundStimulus['LabelA'] + ".webp"
             co2e_chosen = roundStimulus['CO2A'] 
             co2e_not_chosen = roundStimulus['CO2B'] 
-            label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
+            #label = roundStimulus['LabelB'] if choice == 'B' else roundStimulus['LabelA']
             chosen, not_chosen = ('B', 'A') if choice == 'B' else ('A', 'B')
 
-        if label == 'labelC':
-            chosen_color = 'orange'
-        elif label == 'labelD':
-            chosen_color = 'darkorange'
-        elif label == 'labelE':
-            chosen_color = 'red'
-        elif label in ['labelA', 'labelB']:
-            chosen_color = 'red'  
-        else:
-            chosen_color = 'black'
-
-        not_chosen_color = 'black'
+        if player.choice_sustainable == 'sustainable':
+            chosen_color = roundStimulus['ColorB']
+            not_chosen_color = roundStimulus['ColorA']
+        else: 
+            chosen_color = roundStimulus['ColorA']
+            not_chosen_color = roundStimulus['ColorB']
 
         message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
         message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'

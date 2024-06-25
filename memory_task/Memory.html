@@ -16,11 +16,11 @@
             <div style="text-align: left; margin-top: 10px;">
                 <h4 style="margin: 0;">{{ ADescription }}</h4>
                 <div style="margin-top: 5px; display: flex; align-items: center;">
-                    <input type="number" name="AChoice" id="achoice" class="form-control" style="width: 30%;" />
+                    <input type="number" name="AEstimate" id="aestimate" class="form-control" style="width: 30%;" />
                     <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
                 </div>
             </div>
-            {{ formfield_errors 'AChoice' }}
+            {{ formfield_errors 'AEstimate' }}
         </div>
     </div>
 
@@ -30,11 +30,11 @@
             <div style="text-align: left; margin-top: 10px;">
                 <h4 style="margin: 0;">{{ BDescription }}</h4>
                 <div style="margin-top: 5px; display: flex; align-items: center;">
-                    <input type="number" name="BChoice" id="bchoice" class="form-control" style="width: 30%;" />
+                    <input type="number" name="BEstimate" id="bestimate" class="form-control" style="width: 30%;" />
                     <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
                 </div>
             </div>
-            {{ formfield_errors 'BChoice' }}
+            {{ formfield_errors 'BEstimate' }}
         </div>
     </div>
 </div>
@@ -52,6 +52,6 @@
 {% endblock %}
 
 {% block scripts %}
-
 {% endblock %}
+
 

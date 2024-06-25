@@ -12,7 +12,6 @@ SPECIFIC_IMAGE_PAIRS = [
     {"PictureA": "icecream.webp", "PictureB": "sorbet.webp"},
     {"PictureA": "apples.webp", "PictureB": "dates.webp"},
     {"PictureA": "granolabar.webp", "PictureB": "cracker.webp"},
-
 ]
 
 class Subsession(BaseSubsession):
@@ -22,12 +21,16 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    AChoice = models.IntegerField(min=0, max=10000)
-    BChoice = models.IntegerField(min=0, max=10000)
+    AName = models.StringField()
+    BName = models.StringField()
+    AEstimate = models.IntegerField(min=0, max=10000)
+    BEstimate = models.IntegerField(min=0, max=10000)
+    ACorrect = models.IntegerField()
+    BCorrect = models.IntegerField()
 
 class Memory(Page):
     form_model = 'player'
-    form_fields = ['AChoice', 'BChoice']
+    form_fields = ['AEstimate', 'BEstimate']
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -35,6 +38,12 @@ class Memory(Page):
         with open("memory_task/memorystimuli.json", 'r') as f:
             stimuli = json.load(f)
         current_stimulus = stimuli[round_number - 1]
+
+        player.AName = current_stimulus['DescriptionA']
+        player.BName = current_stimulus['DescriptionB']
+        player.ACorrect = current_stimulus['CO2A']
+        player.BCorrect = current_stimulus['CO2B']
+
         return {
             'round_number': round_number,
             'APicture': "/static/global/images/" + current_stimulus['PictureA'],
@@ -45,5 +54,3 @@ class Memory(Page):
 
 page_sequence = [Memory]
 
-with open("memory_task/memorystimuli.json", 'r') as f:
-    stimuli = json.load(f)

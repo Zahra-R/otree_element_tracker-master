@@ -5,48 +5,62 @@
      "PictureA": "macandcheese.webp",
      "PictureB": "curry.webp",
      "DescriptionA": "Mac & Cheese",
-     "DescriptionB": "Kichererbsen Curry"
+     "DescriptionB": "Kichererbsen Curry",
+     "CO2A": 906,
+     "CO2B": 260
     },
     {
      "StimulusID": 2,
      "PictureA": "hamburger.webp",
      "PictureB": "falafel.webp",
      "DescriptionA": "Hamburger",
-     "DescriptionB": "Falafelsandwich"
+     "DescriptionB": "Falafelsandwich",
+     "CO2A": 2541,
+     "CO2B": 300
     },
     {
      "StimulusID": 3,
      "PictureA": "beefjerky.webp",
      "PictureB": "trailmix.webp",
      "DescriptionA": "Beefjerky",
-     "DescriptionB": "Trailmix"
+     "DescriptionB": "Trailmix",
+     "CO2A": 1036,
+     "CO2B": 112
     },
     {
      "StimulusID": 4,
      "PictureA": "pizza.webp",
      "PictureB": "chili.webp",
      "DescriptionA": "Salami Pizza",
-     "DescriptionB": "Chili sin carne"
+     "DescriptionB": "Chili sin carne",
+     "CO2A": 644,
+     "CO2B": 86
     },
     {
      "StimulusID": 5,
      "PictureA": "meatballs.webp",
      "PictureB": "marinara.webp",
      "DescriptionA": "Spaghetti Meatballs",
-     "DescriptionB": "Spaghetti Marinara"
+     "DescriptionB": "Spaghetti Marinara",
+     "CO2A": 1695,
+     "CO2B": 352
     },
     {
      "StimulusID": 6,
      "PictureA": "cowmilk.webp",
      "PictureB": "oatmilk.webp",
      "DescriptionA": "Kuhmilch",
-     "DescriptionB": "Pflanzliche Milch"
+     "DescriptionB": "Pflanzliche Milch",
+     "CO2A": 352,
+     "CO2B": 109
     },
     {
      "StimulusID": 7,
      "PictureA": "papaya.webp",
      "PictureB": "banana.webp",
      "DescriptionA": "Papaya",
-     "DescriptionB": "Banane"
+     "DescriptionB": "Banane",
+     "CO2A": 528,
+     "CO2B": 156
     }
 ]

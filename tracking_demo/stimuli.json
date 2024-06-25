@@ -61,7 +61,7 @@
   "PriceB": 0.4,
   "CO2B": 125,
   "ProteinB": 11,
-  "NameA": "Voll&shy;milch&shy;schokolade",
+  "NameA": "Vollmshy;milch&shy;schokolade",
   "LabelA": "labelE",
   "NameB": "Erdnussbutter-Marmeladen Sandwich",
   "LabelB": "labelA",
@@ -99,7 +99,7 @@
   "LabelA": "labelC",
   "NameB": "Cracker",
   "LabelB": "labelA",
-  "ColorA": "red",
+  "ColorA": "orange",
   "ColorB": "green"
  },
  {
@@ -149,7 +149,9 @@
   "NameA": "Salami Pizza",
   "LabelA": "labelE",
   "NameB": "Chili sin Carne",
-  "LabelB": "labelA"
+  "LabelB": "labelA",
+  "ColorA": "red",
+  "ColorB": "green"
  },
  {
   "StimulusID": 10,
