@@ -46,8 +46,20 @@ class Player(BasePlayer):
     )
 
     haushalts_einkauf = models.StringField(
-        label="Sind Sie für den Einkauf in Ihrem Haushalt zuständig?",
+        label="Sind Sie für den Lebensmitteleinkauf in Ihrem Haushalt zuständig?",
         choices=['Ja', 'Nein'],
+        widget=widgets.RadioSelect
+    )
+
+    politische_orientierung = models.StringField(
+        label="Wie würden Sie Ihre politische Orientierung beschreiben?",
+        choices=['Links', 'Mitte-links', 'Mitte', 'Mitte-rechts', 'Rechts', 'Ich möchte keine Angabe machen'],
+        widget=widgets.RadioSelect
+    )
+
+    ernaehrungsgewohnheiten = models.StringField(
+        label="Welche der folgenden Ernährungsgewohnheiten treffen auf Sie zu?",
+        choices=['AllesesserIn', 'Vegetarisch', 'Vegan', 'Pescetarisch', 'Sonstige'],
         widget=widgets.RadioSelect
     )
 
@@ -55,11 +67,10 @@ class Player(BasePlayer):
         blank=True, label="Ihre Emailadresse (Angabe freillig; benötigt für Gewinnspielteilnahme)"
     )
 
-
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'haushalts_einkauf']
+    form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'politische_orientierung', 'ernaehrungsgewohnheiten', 'haushalts_einkauf']
 
 
 class Goodbye(Page):
