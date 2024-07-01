@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Informationen zum Ablauf der Studie
+{% endblock %}
+
+{% block content %}
+<p>In dieser Studie treffen Sie 15 Entscheidungen zwischen je zwei Lebensmitteln. Bitte wählen Sie das Lebensmittel/Gericht aus, das Ihnen mehr zusagt. </p>
+<p>Sie haben außerdem die Möglichkeit, mehr Informationen über die Lebensmittel zu erhalten. Durch Anklicken/Antippen auf das entsprechende Feld werden die Informationen aufgedeckt.</p>
+
+Für jedes Lebensmittel geben wir Ihnen die folgenden Informationen:
+
+<ul>
+    <li><b>Preis:</b> Kosten für das Lebensmittel/Gericht</li>
+    <li><b>CO2 Äquivalente:</b> So viele klimaschädliche Gase werden durch die Produktion (Anbau/Zubereitung/Aufzucht etc.) des Lebensmittels verursacht. Die Berechnungen sind basierend auf einer Portionsgröße und entsprechen den Umweltwirkungen und der Energiebilanz des Produktes während des gesamten Lebensweges. Andere Treibhausgase (z.B. Methan) wurden entsprechend ihrer Klimawirkung in CO2-Einheiten umgerechnet.</li>
+    <li><b>Proteine:</b> Nährwertangabe für den Eiweißgehalt in einer Portion des entsprechenden Lebensmittels.</li>
+</ul>
+
+<p style="text-align: left; font-weight: normal;">
+    Mit etwas Glück werden Sie am Ende der Studie für einen der Gewinnkörbe ausgelost. Dieser besteht aus Lebensmitteln, die Sie in dieser Studie ausgewählt haben. Treffen Sie Ihre Wahl also mit Bedacht!
+</p>
+
+{{ form }}
+
+<button type="submit" class="btn btn-primary">Los geht's</button>
+
+{% endblock %}
+
+
