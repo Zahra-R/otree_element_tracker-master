@@ -21,7 +21,10 @@ class Player(BasePlayer):
         label="Ich stimme zu",
         widget=widgets.CheckboxInput
     )
-    comprehension_answer = models.StringField()
+    comprehension1 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion"], ["b_false", "Ein Maß für die Luftverschmutzung"], ["c_false", "Ein Indikator für die Temperaturerhöhung"], ["correct", "Ein Wert für die klimaschädlichen Gase aus der Lebensmittelproduktion"]], label ="Was versteht man unter CO2e?",  widget = widgets.RadioSelect )
+
+    comprehension2 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion"], ["b_false", "Ein Maß für die Luftverschmutzung"], ["c_false", "Ein Indikator für die Temperaturerhöhung"], ["correct", "Ein Wert für die klimaschädlichen Gase aus der Lebensmittelproduktion"]], label ="Was versteht man unter CO2e?",  widget = widgets.RadioSelect )
+
 
 
 # PAGES
@@ -38,41 +41,39 @@ class Consent(Page):
 class Instructions(Page):
     form_model = 'player'
 
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        player.participant.vars['comprehension_check_failed'] = False
-
 
 class Comprehension_check(Page):
     form_model = 'player'
-    form_fields = ['comprehension_answer']
+    form_fields = ['comprehension1']
 
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            'question': 'Was versteht man unter CO2e?',
-            'answers': [
-                'Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion',
-                'Ein Maß für die Luftverschmutzung',
-                'Ein Indikator für die Temperaturerhöhung',
-                C.CORRECT_ANSWER
-            ],
-            'correct_answer': C.CORRECT_ANSWER,
-            'comprehension_check_failed': player.participant.vars.get('comprehension_check_failed', False)
-        }
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if player.comprehension_answer != C.CORRECT_ANSWER:
-            player.participant.vars['comprehension_check_failed'] = True
-        else:
-            player.participant.vars['comprehension_check_failed'] = False
+        player.participant.vars['comprehensionCheck'] = player.comprehension1
+        
+
+class Instructions2(Page):
+    form_model = 'player'
 
     @staticmethod
-    def app_after_this_page(player: Player, upcoming_apps):
-        if player.participant.vars.get('comprehension_check_failed', False):
-            return 'Instructions'
+    def is_displayed(player: Player):
+        print("hello i am dying")
+        print(player.comprehension1)
+        return player.comprehension1 != "correct"
+    
+
+class Comprehension_check2(Page):
+    form_model = 'player'
+    form_fields = ['comprehension2']
 
 
-page_sequence = [Consent, Instructions, Comprehension_check]
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        player.participant.vars['comprehensionCheck2'] = player.comprehension2
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.comprehension1 != "correct"
+
+
+page_sequence = [Consent, Instructions, Comprehension_check, Instructions2, Comprehension_check2]
 

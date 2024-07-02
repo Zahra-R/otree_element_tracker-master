@@ -3,7 +3,7 @@ from os import environ
 SESSION_CONFIGS = [
      dict(
          name='FirstSurvey',
-         app_sequence=['consent', 'instruction', 'comprehension_check', 'ReturnToInstructions','tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'],
+         app_sequence=['introduction', 'tracking_demo', 'memory_task', 'NEPR_scale', 'demographics'],
          num_demo_participants=20,
      ),
      dict(
@@ -40,7 +40,9 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = [
 
-    'orderStimuli'
+    'orderStimuli', 
+    'comprehensionCheck',
+    'comprehensionCheck2'
 ]
 SESSION_FIELDS = []
 
