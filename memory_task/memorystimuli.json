@@ -4,19 +4,19 @@
      "StimulusID": 1,
      "PictureA": "macandcheese.webp",
      "PictureB": "curry.webp",
-     "DescriptionA": "Mac & Cheese",
+     "DescriptionA": "Bacon Mac&Cheese",
      "DescriptionB": "Kichererbsen Curry",
-     "CO2A": 906,
-     "CO2B": 260
+     "CO2A": 1313,
+     "CO2B": 437
     },
     {
      "StimulusID": 2,
      "PictureA": "hamburger.webp",
      "PictureB": "falafel.webp",
-     "DescriptionA": "Hamburger",
+     "DescriptionA": "Cheeseburger",
      "DescriptionB": "Falafelsandwich",
-     "CO2A": 2541,
-     "CO2B": 300
+     "CO2A": 7485,
+     "CO2B": 540
     },
     {
      "StimulusID": 3,
@@ -25,7 +25,7 @@
      "DescriptionA": "Beefjerky",
      "DescriptionB": "Trailmix",
      "CO2A": 1036,
-     "CO2B": 112
+     "CO2B": 107
     },
     {
      "StimulusID": 4,
@@ -33,8 +33,8 @@
      "PictureB": "chili.webp",
      "DescriptionA": "Salami Pizza",
      "DescriptionB": "Chili sin carne",
-     "CO2A": 644,
-     "CO2B": 86
+     "CO2A": 1784,
+     "CO2B": 430
     },
     {
      "StimulusID": 5,
@@ -42,8 +42,8 @@
      "PictureB": "marinara.webp",
      "DescriptionA": "Spaghetti Meatballs",
      "DescriptionB": "Spaghetti Marinara",
-     "CO2A": 1695,
-     "CO2B": 352
+     "CO2A": 7622,
+     "CO2B": 557
     },
     {
      "StimulusID": 6,

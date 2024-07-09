@@ -41,7 +41,7 @@ class Player(BasePlayer):
 
     monatliches_einkommen = models.StringField(
         label="Wie hoch ist Ihr monatliches Nettoeinkommen? (in CHF/Euro)",
-        choices=['0-500', '500-1000', '1000-2000', '2000-5000', '5000-8000', '> 8000', 'Ich möchte keine Angabe machen'],
+        choices=['0-3000', '3001-5000', '5001-7000', '7001-10000', 'Mehr als 10000', 'Ich möchte keine Angabe machen'],
         widget=widgets.RadioSelect
     )
 
