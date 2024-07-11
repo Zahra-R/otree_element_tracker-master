@@ -57,8 +57,6 @@ class Instructions2(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        print("hello i am dying")
-        print(player.comprehension1)
         return player.comprehension1 != "correct"
     
 
