@@ -5,7 +5,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'introduction'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    CORRECT_ANSWER = 'Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden'
+    CORRECT_ANSWER = 'Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden.'
 
 
 class Subsession(BaseSubsession):
@@ -21,9 +21,9 @@ class Player(BasePlayer):
         label="Ich stimme zu",
         widget=widgets.CheckboxInput
     )
-    comprehension1 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion"], ["b_false", "Eine chemische Verbindung von Kohlendioxid, die modifiziert wurde, um weniger umweltschädlich zu sein"], ["c_false", "Ein Indikator für die Erwärmungsrate der Oberflächentemperatur der Erde"], ["correct", "Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden"]], label ="<b>Was versteht man unter CO2e?</b>",  widget = widgets.RadioSelect )
+    comprehension1 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion."], ["b_false", "Eine chemische Verbindung von Kohlendioxid, die modifiziert wurde, um weniger umweltschädlich zu sein."], ["c_false", "Ein Indikator für die Erwärmungsrate der Oberflächentemperatur der Erde."], ["correct", "Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden."]], label ="<b>Was versteht man unter CO2e?</b>",  widget = widgets.RadioSelect )
 
-    comprehension2 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion"], ["b_false", "Eine chemische Verbindung von Kohlendioxid, die modifiziert wurde, um weniger umweltschädlich zu sein"], ["c_false", "Ein Indikator für die Erwärmungsrate der Oberflächentemparatur der Erde"], ["correct", "Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden"]], label ="<b>Was versteht man unter CO2e?</b>",  widget = widgets.RadioSelect )
+    comprehension2 = models.StringField(choices=[ ["a_false", "Eine Kennzahl für den Wasserverbrauch in der Lebensmittelproduktion."], ["b_false", "Eine chemische Verbindung von Kohlendioxid, die modifiziert wurde, um weniger umweltschädlich zu sein."], ["c_false", "Ein Indikator für die Erwärmungsrate der Oberflächentemperatur der Erde."], ["correct", "Ein Wert für die klimaschädlichen Gase, die durch die Produktion von Lebensmitteln verursacht werden."]], label ="<b>Was versteht man unter CO2e?</b>",  widget = widgets.RadioSelect )
 
 
 

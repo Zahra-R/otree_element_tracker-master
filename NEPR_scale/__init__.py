@@ -106,19 +106,19 @@ class Player(BasePlayer):
         choices=[
             [1, 'Keine Bemühungen'],
             [2, 'Wenige Bemühungen'],
-            [3, 'Mäßige Bemühungen'],
-            [4, 'Große Bemühungen'],
-            [5, 'Sehr große Bemühungen']
+            [3, 'Mässige Bemühungen'],
+            [4, 'Grosse Bemühungen'],
+            [5, 'Sehr grosse Bemühungen']
         ],
         widget=widgets.RadioSelect
     )
 
     frage_8 = models.IntegerField(
-        label="Wie wichtig ist es Ihrer Familie und Ihren Freunden, dass Sie Maßnahmen zur Reduzierung des Klimawandels ergreifen?",
+        label="Wie wichtig ist es Ihrer Familie und Ihren Freunden, dass Sie Massnahmen zur Reduzierung des Klimawandels ergreifen?",
         choices=[
             [1, 'Überhaupt nicht wichtig'],
             [2, 'Wenig wichtig'],
-            [3, 'Mäßig wichtig'],
+            [3, 'Mässig wichtig'],
             [4, 'Wichtig'],
             [5, 'Extrem wichtig']
         ],
