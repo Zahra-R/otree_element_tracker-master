@@ -58,6 +58,9 @@
             margin-top: 30px; 
             text-align: left; 
         }
+        .nonselected {
+            margin-top: 10px;
+        }
     </style>
 
 {% block title %}
@@ -66,7 +69,7 @@
 
     <div style="display: flex; justify-content:center; align-items: flex-start; max-width: 620px; margin-left: auto; margin-right: auto;">
         <div style="text-align: center; width: 50%;">
-            <div class="{% if chosen == 'A' %}selected{% endif %}">
+            <div class="{% if chosen == 'A' %}selected {%else%} nonselected  {% endif %}">
                 <p class="food-name">{{ AName }}</p> <!-- Bezeichnung oberhalb des Bildes -->
                 <div class="image-and-label-container">
                     <img src="{{ APicture }}" alt="{{ AName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ AOpacity }};">
@@ -79,7 +82,7 @@
             </div>
         </div>
         <div style="text-align: center; width: 50%;">
-            <div class="{% if chosen == 'B' %}selected{% endif %}">
+            <div class="{% if chosen == 'B' %}selected  {%else%} nonselected  {% endif %}">
                 <p class="food-name">{{ BName }}</p> <!-- Bezeichnung oberhalb des Bildes -->
                 <div class="image-and-label-container">
                     <img src="{{ BPicture }}" alt="{{ BName }}" style="width:auto; height:200px; max-width:200px; max-height:200px; opacity: {{ BOpacity }};">

@@ -73,11 +73,61 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    frage_5 = models.IntegerField(
+        label="Ich fühle mich verpflichtet, umweltfreundlich zu handeln, was meine Ernährung betrifft.",
+        choices=[
+            [1, 'Stimme überhaupt nicht zu'],
+            [2, 'Stimme nicht zu'],
+            [3, 'Stimme eher nicht zu'],
+            [4, 'Stimme eher zu'],
+            [5, 'Stimme zu'],
+            [6, 'Stimme voll und ganz zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    frage_6 = models.IntegerField(
+        label="Ich finde es wichtig, dass sich Menschen im Allgemeinen umweltfreundlich ernähren.",
+        choices=[
+            [1, 'Stimme überhaupt nicht zu'],
+            [2, 'Stimme nicht zu'],
+            [3, 'Stimme eher nicht zu'],
+            [4, 'Stimme eher zu'],
+            [5, 'Stimme zu'],
+            [6, 'Stimme voll und ganz zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    frage_7 = models.IntegerField(
+        label="Wie sehr bemühen sich Ihre Familie und Freunde, den Klimawandel zu reduzieren?",
+        choices=[
+            [1, 'Keine Bemühungen'],
+            [2, 'Wenige Bemühungen'],
+            [3, 'Mäßige Bemühungen'],
+            [4, 'Große Bemühungen'],
+            [5, 'Sehr große Bemühungen']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    frage_8 = models.IntegerField(
+        label="Wie wichtig ist es Ihrer Familie und Ihren Freunden, dass Sie Maßnahmen zur Reduzierung des Klimawandels ergreifen?",
+        choices=[
+            [1, 'Überhaupt nicht wichtig'],
+            [2, 'Wenig wichtig'],
+            [3, 'Mäßig wichtig'],
+            [4, 'Wichtig'],
+            [5, 'Extrem wichtig']
+        ],
+        widget=widgets.RadioSelect
+    )
+
 
 # PAGES
 class NEPR(Page):
     form_model = 'player'
-    form_fields = ['frage_1', 'frage_2', 'frage_3', 'frage_4']
+    form_fields = ['frage_1', 'frage_2', 'frage_3', 'frage_4', 'frage_5', 'frage_6', 'frage_7', 'frage_8']
 
 
 class ResultsWaitPage(WaitPage):

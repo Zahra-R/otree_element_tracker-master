@@ -56,11 +56,11 @@
     },
     {
      "StimulusID": 7,
-     "PictureA": "papaya.webp",
-     "PictureB": "banana.webp",
-     "DescriptionA": "Papaya",
-     "DescriptionB": "Banane",
-     "CO2A": 528,
-     "CO2B": 156
+     "PictureA": "salami.webp",
+     "PictureB": "kichererbsen.webp",
+     "DescriptionA": "Salami",
+     "DescriptionB": "Kichererbsen",
+     "CO2A": 530,
+     "CO2B": 68
     }
 ]

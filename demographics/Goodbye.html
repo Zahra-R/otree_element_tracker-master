@@ -7,12 +7,13 @@
 {% block content %}
 <p>Vielen Dank für Ihre Teilnahme an meiner Studie!</p>
 <p><strong>Sie haben nun die Möglichkeit, an einer Verlosung für einen von insgesamt 20 Lebensmittelkörben teilzunehmen.</strong></p>
-<p>Hierbei handelt es sich um einen exklusiven Lebensmittel-Geschenkkorb, welcher eine Auswahl an jenen Lebensmitteln enthält, die Sie in der Studie ausgewählt haben. </p> <p> Der Korb wird Ihnen im Gewinnfall per Post zugestellt. Wenn Sie an der Verlosung teilnehmen wollen, geben Sie hierfür eine E-Mail Adresse an, damit wir uns mit Ihnen in Kontakt setzen können. </p>  <p>Ihre Emailadresse wird ausschliesslich im Zusammenhang mit dem Gewinnspiel benutzt. Falls Sie nicht ausgelost werden sollten, wird Ihre E-Mail Adresse gelöscht und Ihre Daten dadurch nicht mehr zuordbar gemacht. Falls Sie ausgelost wurden, kontatkieren wir Sie per Email für die weiteren Schritte und stellen Ihren persönlichen Lebensmittelkorb zusammen. Danach wird die Email aus dem Datensatz gelöscht, sodass es keine Zuordnung zwischen Ihren Angaben in der Studie und Ihrer Person geben kann. </p>
-<p>Um die Studie zu beenden, <strong>klicken Sie bitte auf "Absenden"</strong>.</p>
+<p>Hierbei handelt es sich um einen exklusiven Lebensmittel-Geschenkkorb, welcher eine Auswahl an jenen Lebensmitteln enthält, die Sie in der Studie ausgewählt haben. </p> <p> Der Korb wird Ihnen im Gewinnfall per Post zugestellt. Wenn Sie an der Verlosung teilnehmen wollen, geben Sie hierfür eine E-Mail-Adresse an, damit wir uns mit Ihnen in Kontakt setzen können. </p>  <p>Ihre E-Mail-Adresse wird ausschliesslich im Zusammenhang mit dem Gewinnspiel benutzt. Falls Sie nicht ausgelost werden sollten, wird Ihre E-Mail-Adresse gelöscht und Ihre Daten dadurch nicht mehr zuordbar gemacht. Falls Sie ausgelost wurden, kontaktieren wir Sie per E-Mail für die weiteren Schritte und stellen Ihren persönlichen Lebensmittelkorb zusammen. Danach wird die E-Mail aus dem Datensatz gelöscht, sodass es keine Zuordnung zwischen Ihren Angaben in der Studie und Ihrer Person geben kann. </p>
 
 <form method="post">
-    {{ formfield 'email'}}<br> 
+    {{ formfield 'email'}}
+    <p style="margin-top: 5px;">Um die Studie zu beenden, <strong>klicken Sie bitte auf "Absenden"</strong>.</p>
     <button type="submit" class="btn btn-primary">Absenden</button>
 </form>
+
 
 {% endblock %}

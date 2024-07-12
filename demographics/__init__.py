@@ -41,7 +41,7 @@ class Player(BasePlayer):
 
     monatliches_einkommen = models.StringField(
         label="Wie hoch ist Ihr monatliches Nettoeinkommen? (in CHF/ Euro)",
-        choices=['0-3000', '3001-5000', '5001-7000', '7001-10000', 'Mehr als 10000', 'Ich möchte keine Angabe machen'],
+        choices=['0-1000', '1001-3000', '3001-5000', '5001-7000', 'Mehr als 7000', 'Ich möchte keine Angabe machen'],
         widget=widgets.RadioSelect
     )
 
@@ -64,7 +64,7 @@ class Player(BasePlayer):
     )
 
     email = models.StringField(
-        blank=True, label="Ihre Emailadresse (Angabe freillig; benötigt für Gewinnspielteilnahme)"
+        blank=True, label="Ihre E-Mail-Adresse (Angabe freiwillig; benötigt für Gewinnspielteilnahme)"
     )
 
 # PAGES
