@@ -76,12 +76,13 @@ class Player(BasePlayer):
     frage_5 = models.IntegerField(
         label="Ich fühle mich verpflichtet, umweltfreundlich zu handeln, was meine Ernährung betrifft.",
         choices=[
-            [1, 'Stimme überhaupt nicht zu'],
-            [2, 'Stimme nicht zu'],
-            [3, 'Stimme eher nicht zu'],
-            [4, 'Stimme eher zu'],
-            [5, 'Stimme zu'],
-            [6, 'Stimme voll und ganz zu']
+            [1, 'Extrem unzutreffend'],
+            [2, 'Sehr unzutreffend'],
+            [3, 'Unzutreffend'],
+            [4, 'Weder noch'],
+            [5, 'Zutreffend'],
+            [6, 'Sehr zutreffend'],
+            [7, 'Extrem zutreffend']
         ],
         widget=widgets.RadioSelect
     )
@@ -89,12 +90,13 @@ class Player(BasePlayer):
     frage_6 = models.IntegerField(
         label="Ich finde es wichtig, dass sich Menschen im Allgemeinen umweltfreundlich ernähren.",
         choices=[
-            [1, 'Stimme überhaupt nicht zu'],
-            [2, 'Stimme nicht zu'],
-            [3, 'Stimme eher nicht zu'],
-            [4, 'Stimme eher zu'],
-            [5, 'Stimme zu'],
-            [6, 'Stimme voll und ganz zu']
+            [1, 'Extrem unzutreffend'],
+            [2, 'Sehr unzutreffend'],
+            [3, 'Unzutreffend'],
+            [4, 'Weder noch'],
+            [5, 'Zutreffend'],
+            [6, 'Sehr zutreffend'],
+            [7, 'Extrem zutreffend']
         ],
         widget=widgets.RadioSelect
     )
