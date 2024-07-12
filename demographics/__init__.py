@@ -58,9 +58,13 @@ class Player(BasePlayer):
     )
 
     ernaehrungsgewohnheiten = models.StringField(
-        label="Welche der folgenden Ernährungsgewohnheiten treffen auf Sie zu?",
-        choices=['AllesesserIn', 'Vegetarisch', 'Vegan', 'Sonstige'],
+        label="Welche der folgenden Ernährungsgewohnheiten beschreibt Sie am besten?",
+        choices=['AllesesserIn', 'Vegetarisch', 'Vegan'],
         widget=widgets.RadioSelect
+    )
+
+    ernaehrungsgewohnheiten_other = models.StringField(
+        label="Haben Sie sonstige Einschränkungen, z.B. Allergien oder Unverträglichkeiten, in Ihrer Ernährung? Wenn ja, welche?",
     )
 
     email = models.StringField(
@@ -70,7 +74,13 @@ class Player(BasePlayer):
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'politische_orientierung', 'ernaehrungsgewohnheiten', 'haushalts_einkauf']
+    form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'politische_orientierung', 'ernaehrungsgewohnheiten', 'ernaehrungsgewohnheiten_other', 'haushalts_einkauf']
+
+
+
+class Demographics2(Page):
+    form_model = 'player'
+    form_fields = ['geschlecht','ernaehrungsgewohnheiten', 'ernaehrungsgewohnheiten_other']
 
 
 class Goodbye(Page):
@@ -86,6 +96,6 @@ class ResultsWaitPage(WaitPage):
 #    pass
 
 
-page_sequence = [Demographics, Goodbye]
+page_sequence = [Demographics2, Demographics, Goodbye]
 
 
