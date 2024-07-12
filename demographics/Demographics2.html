@@ -1,0 +1,69 @@
+{% block styles %}
+{% endblock %}
+
+
+
+{% block title %}
+Angaben zu Ihrer Person
+{% endblock %}
+
+{% block content %}
+
+
+{% formfield player.geschlecht  %}
+
+<table>
+    <tr style="padding: 0;">
+        <td style="padding: 0;">
+            <div class="mb-3 _formfield">
+    
+                <label class="col-form-label" for="id_ernaehrungsgewohnheiten">Welche der folgenden Ernährungsgewohnheiten
+                    beschreibt Sie am besten?</label>
+                <div class="controls">
+                    <select class="form-select" onchange="check_specify(this.value)" id="id_ernaehrungsgewohnheiten"
+                        name="ernaehrungsgewohnheiten" required="">
+                        <option value="">--------</option>
+                        <option value="1">AllesEsser:in</option>
+                        <option value="2">Vegetarisch</option>
+                        <option value="3">Vegan</option>
+                        <option value="4">Sonstige:</option>
+                    </select>
+                </div>
+    
+            </div>
+        </td>
+        <td style="padding-left: 4vw;">
+            <div style="display:none" id="specify_eat" class="mb-3 _formfield">
+    
+                <label style="padding-top: 0;" class="col-form-label" for="id_partyother">Welche?</label>
+                <div class="controls">
+                    <input type="text" class="form.control" size=40 placeholder="Allergien, Unverträglichkeiten..."
+                        id="id_ernaehrungsgewohnheiten_other" name="ernaehrungsgewohnheiten_other" value="">
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="next-btn">
+    <div style="float: right; padding-top: 5vh;">
+        {% next_button %}
+    </div>
+</div>
+{% endblock %}
+
+{{ formfield_errors 'ernaehrungsgewohnheiten' }}
+{{ formfield_errors 'ernaehrungsgewohnheiten_other' }}
+{% block scripts %}
+<script>
+
+function check_specify(value){
+    if (value == 4) {
+        $('#specify_eat').css("display", "block")
+    } else {
+        $('#specify_eat').css("display", "none")
+    }
+}
+
+</script>
+{% endblock %}
