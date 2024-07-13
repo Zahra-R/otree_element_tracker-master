@@ -23,7 +23,7 @@ class Player(BasePlayer):
     treatment = models.StringField()
     choice_sustainable = models.BooleanField()
 
-    def store_tracking_data(self, payload):
+    def store_tracking_data(self, payload, view_order):
         HoverEvent.create(
             player=self,
             element_id=payload["element_id"],
@@ -34,6 +34,7 @@ class Player(BasePlayer):
             attributeValue=payload["attributeValue"],
             stimulusID=payload["stimulusID"],
             foodName=payload["foodName"],
+            view_order=view_order
         )
 
 class HoverEvent(models.ExtraModel):
@@ -46,6 +47,8 @@ class HoverEvent(models.ExtraModel):
     attributeValue = models.FloatField()
     stimulusID = models.StringField()
     foodName = models.StringField()
+    view_order = models.IntegerField()
+
 
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
@@ -68,7 +71,8 @@ def custom_export(players):
         "attributeType",
         "attributeValue",
         "stimulusID", 
-        "foodName"
+        "foodName",
+        "view_order"
     ]
     for player in players:
         for e in HoverEvent.filter(player=player):
@@ -84,7 +88,8 @@ def custom_export(players):
                 e.attributeType,
                 e.attributeValue, 
                 e.stimulusID,
-                e.foodName
+                e.foodName,
+                e.view_order
             ]
 
 class choice(Page):
@@ -93,7 +98,8 @@ class choice(Page):
 
     @staticmethod
     def live_method(player, data):
-        player.store_tracking_data(data)
+        view_order = len(HoverEvent.filter(player=player)) + 1
+        player.store_tracking_data(data, view_order)
     
     @staticmethod
     def vars_for_template(player: Player):

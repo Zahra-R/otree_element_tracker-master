@@ -96,6 +96,6 @@ class ResultsWaitPage(WaitPage):
 #    pass
 
 
-page_sequence = [Demographics2, Demographics, Goodbye]
+page_sequence = [Demographics, Goodbye]
 
 
