@@ -64,7 +64,7 @@ class Player(BasePlayer):
     )
 
     ernaehrungsgewohnheiten_other = models.StringField(
-        label="Haben Sie sonstige Einschränkungen, z.B. Allergien oder Unverträglichkeiten, in Ihrer Ernährung? Wenn ja, welche?",
+        label="Haben Sie sonstige Einschränkungen, z.B. Allergien oder Unverträglichkeiten, in Ihrer Ernährung? Wenn ja, welche? Falls nicht, tippen Sie bitte 'Nein'",
     )
 
     email = models.StringField(
