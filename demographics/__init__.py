@@ -77,12 +77,6 @@ class Demographics(Page):
     form_fields = ['alter', 'geschlecht', 'studierende', 'monatliches_einkommen', 'politische_orientierung', 'ernaehrungsgewohnheiten', 'ernaehrungsgewohnheiten_other', 'haushalts_einkauf']
 
 
-
-class Demographics2(Page):
-    form_model = 'player'
-    form_fields = ['geschlecht','ernaehrungsgewohnheiten', 'ernaehrungsgewohnheiten_other']
-
-
 class Goodbye(Page):
     form_model = 'player'
     form_fields = ['email']
