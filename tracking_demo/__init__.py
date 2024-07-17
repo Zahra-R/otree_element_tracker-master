@@ -191,7 +191,6 @@ class choice(Page):
             else:
                 player.participant.vars['chosen_option'] = 'non-sustainable'
         player.choice_sustainable = player.participant.vars['chosen_option'] == 'sustainable'
-        print(player.participant.vars)
 
 class L_S(Page):
     def is_displayed(player: Player):

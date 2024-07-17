@@ -45,6 +45,7 @@ margin: 10px;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transform: rotateX(0deg);
 }
 
 .flip-card-front {
