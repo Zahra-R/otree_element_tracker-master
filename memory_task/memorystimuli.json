@@ -6,8 +6,8 @@
      "PictureB": "curry.webp",
      "DescriptionA": "Bacon Mac&Cheese",
      "DescriptionB": "Kichererbsen-Curry",
-     "CO2A": 1313,
-     "CO2B": 437
+     "CO2A": 5351 ,
+     "CO2B": 1479 
     },
     {
      "StimulusID": 2,
@@ -15,8 +15,8 @@
      "PictureB": "falafel.webp",
      "DescriptionA": "Cheeseburger",
      "DescriptionB": "Falafel-Sandwich",
-     "CO2A": 7485,
-     "CO2B": 540
+     "CO2A": 21693 ,
+     "CO2B": 1478
     },
     {
      "StimulusID": 3,
@@ -24,8 +24,8 @@
      "PictureB": "trailmix.webp",
      "DescriptionA": "Beef Jerky",
      "DescriptionB": "Trail Mix",
-     "CO2A": 1036,
-     "CO2B": 107
+     "CO2A": 23019 ,
+     "CO2B": 2422 
     },
     {
      "StimulusID": 4,
@@ -33,8 +33,8 @@
      "PictureB": "chili.webp",
      "DescriptionA": "Salami-Pizza",
      "DescriptionB": "Chili sin Carne",
-     "CO2A": 1784,
-     "CO2B": 430
+     "CO2A": 4419 ,
+     "CO2B": 1215 
     },
     {
      "StimulusID": 5,
@@ -42,8 +42,8 @@
      "PictureB": "marinara.webp",
      "DescriptionA": "Spaghetti Meatballs",
      "DescriptionB": "Spaghetti Marinara",
-     "CO2A": 7622,
-     "CO2B": 557
+     "CO2A": 17914 ,
+     "CO2B": 2100 
     },
     {
      "StimulusID": 6,
@@ -51,8 +51,8 @@
      "PictureB": "oatmilk.webp",
      "DescriptionA": "Kuhmilch",
      "DescriptionB": "Pflanzliche Milch",
-     "CO2A": 352,
-     "CO2B": 109
+     "CO2A": 1817,
+     "CO2B": 562
     },
     {
      "StimulusID": 7,
@@ -60,7 +60,7 @@
      "PictureB": "kichererbsen.webp",
      "DescriptionA": "Salami",
      "DescriptionB": "Kichererbsen",
-     "CO2A": 530,
-     "CO2B": 68
+     "CO2A": 6628,
+     "CO2B": 852
     }
 ]
