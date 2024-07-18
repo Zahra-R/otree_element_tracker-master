@@ -191,8 +191,6 @@
                 else {
                     hover_events[mylastid]["foodName"] = nameB;
                 }
-                console.log("in fill db")
-                console.log(hover_events)
                 return(hover_events)
                     
                 
@@ -214,7 +212,6 @@
 
                     // send the event and free up the element in the dictionary.
                     liveSend(fill_db(mylastid, leave_time)[mylastid]);
-                    console.log("maed it till livsend")
                 }
 
                 // now open new element
