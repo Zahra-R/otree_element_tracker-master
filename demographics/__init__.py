@@ -13,9 +13,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        for player in self.get_players():
-            player.participant.label = str(player.id_in_group)
+    pass
 
 
 class Group(BaseGroup):
