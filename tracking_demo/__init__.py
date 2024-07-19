@@ -231,8 +231,8 @@ class L_S(Page):
             chosen_color = roundStimulus['ColorB']
             not_chosen_color = roundStimulus['ColorA']
 
-        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
+        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e/ kg</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e/ kg</span>'
 
         return {
             'APicture': APicture,
@@ -294,8 +294,8 @@ class L_N(Page):
             chosen_color = roundStimulus['ColorA']
             not_chosen_color = roundStimulus['ColorB']
 
-        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e</span>'
+        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e/ kg</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.5;">{co2e_not_chosen} gCO2e/ kg</span>'
 
         return {
             'APicture': APicture,
@@ -358,8 +358,8 @@ class N_S(Page):
             chosen_color = roundStimulus['ColorB']
             not_chosen_color = roundStimulus['ColorA']
 
-        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e</span>'
+        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e/ kg</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e/ kg</span>'
 
         additional_texts = [
             "Immer mehr Menschen entscheiden sich für eine umweltbewusste Ernährung.",
@@ -434,8 +434,8 @@ class N_N(Page):
             chosen_color = roundStimulus['ColorA']
             not_chosen_color = roundStimulus['ColorB']
 
-        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e</span>'
-        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e</span>'
+        message_chosen = f'<span style="color: {chosen_color}; font-size: xx-large; font-weight: bold;">{co2e_chosen} gCO2e/ kg</span>'
+        message_not_chosen = f'<span style="color: {not_chosen_color}; font-size: xx-large; font-weight: bold; opacity: 0.7;">{co2e_not_chosen} gCO2e/ kg</span>'
 
         additional_texts = [
             "Immer mehr Menschen entscheiden sich für eine umweltbewusste Ernährung.",
