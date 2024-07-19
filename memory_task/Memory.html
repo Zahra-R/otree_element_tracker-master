@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<p> Schätzen Sie den CO2e-Wert für die beiden unten abgebildeten Lebensmittel basierend auf Ihrem Wissen und Ihren Erfahrungen. Bitte versuchen Sie, so genau wie möglich zu sein.</p>
+<p> Schätzen Sie den CO2e-Wert für die beiden unten abgebildeten Lebensmittel basierend auf Ihrem Wissen und Ihren Erfahrungen in CO2e pro Kilogramm Lebensmittel. Bitte versuchen Sie, so genau wie möglich zu sein.</p>
 <p> Dies ist Runde Nummer {{ round_number }} von {{ Constants.num_rounds }}. </p>
 
 <div class="row">
@@ -17,7 +17,7 @@
                 <h4 style="margin: 0;">{{ ADescription }}</h4>
                 <div style="margin-top: 5px; display: flex; align-items: center;">
                     <input type="number" name="AEstimate" id="aestimate" class="form-control" style="width: 30%;" />
-                    <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+                    <span style="margin-left: 5px; font-size: 14px;">g CO2e/ kg</span>
                 </div>
             </div>
             {{ formfield_errors 'AEstimate' }}
@@ -31,7 +31,7 @@
                 <h4 style="margin: 0;">{{ BDescription }}</h4>
                 <div style="margin-top: 5px; display: flex; align-items: center;">
                     <input type="number" name="BEstimate" id="bestimate" class="form-control" style="width: 30%;" />
-                    <span style="margin-left: 5px; font-size: 14px;">g CO2e</span>
+                    <span style="margin-left: 5px; font-size: 14px;">g CO2e/ kg</span>
                 </div>
             </div>
             {{ formfield_errors 'BEstimate' }}

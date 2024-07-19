@@ -23,8 +23,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     AName = models.StringField()
     BName = models.StringField()
-    AEstimate = models.IntegerField(min=0, max=10000)
-    BEstimate = models.IntegerField(min=0, max=10000)
+    AEstimate = models.IntegerField(min=0, max=50000)
+    BEstimate = models.IntegerField(min=0, max=50000)
     ACorrect = models.IntegerField()
     BCorrect = models.IntegerField()
 
