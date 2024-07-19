@@ -13,10 +13,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        for player in self.get_players():
-            player.participant.label = str(player.id_in_group)
-
+    pass
 
 class Group(BaseGroup):
     pass
@@ -73,9 +70,6 @@ class Player(BasePlayer):
         blank=True, label="Ihre E-Mail-Adresse (Angabe freiwillig; benötigt für Gewinnspielteilnahme)"
     )
 
-    def set_participant_label(self):
-        self.participant.label = str(self.id_in_group)
-
 # PAGES
 class Demographics(Page):
     form_model = 'player'
@@ -86,12 +80,12 @@ class Goodbye(Page):
     form_model = 'player'
     form_fields = ['email']
 
-    def vars_for_template(self):
-        sona_id = self.participant.label
-        link = "https://baps.sona-systems.com/webstudy_credit.aspx?experiment_id=1656&credit_token=b9a39cb7c71c4e2bb537cb4c5c36c758&survey_code="+str(sona_id)
+    def vars_for_template(player):
+        sona_id = player.participant.label
+        link = "https://baps.sona-systems.com/webstudy_credit.aspx?experiment_id=1656&credit_token=b9a39cb7c71c4e2bb537cb4c5c36c758&survey_code=" + str(sona_id)
         return {'link': link}
     
-    def before_next_page(self):
+    def before_next_page(player):
         import time
         time.sleep(3)  
     
