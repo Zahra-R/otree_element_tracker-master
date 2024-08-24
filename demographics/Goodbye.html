@@ -15,8 +15,6 @@
     {{ formfield 'email'}}
     <p style="margin-top: 5px;">Um die Studie zu beenden, <strong>klicken Sie bitte auf "Absenden"</strong>.</p>
 
-    <button class="btn btn-primary btn-large reps" style="margin-top:3vh;" type="button" onclick="document.getElementById('emailForm').submit(); window.location.href='{{link}}'">Absenden</button>
+    <button class="btn btn-primary btn-large reps" style="margin-top:3vh;" type="submit">Absenden</button>
 </form>
-
-<meta http-equiv="refresh" content="10; url='{{ link }}'" />
 {% endblock %}

@@ -83,12 +83,8 @@ class Goodbye(Page):
     form_model = 'player'
     form_fields = ['email']
 
-    def vars_for_template(player):
-        sona_id = player.participant.label
-        link = "https://baps.sona-systems.com/webstudy_credit.aspx?experiment_id=1656&credit_token=b9a39cb7c71c4e2bb537cb4c5c36c758&survey_code=" + str(sona_id)
-        return {'link': link}
-    
-    def before_next_page(player):
+
+    def before_next_page(self, timeout_happened):
         import time
         time.sleep(3)  
     
